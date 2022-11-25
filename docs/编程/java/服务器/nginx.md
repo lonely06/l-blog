@@ -1,4 +1,6 @@
-
+---
+title: nginx
+---
 # 1. 简介
 
 [官网](https://nginx.org/)

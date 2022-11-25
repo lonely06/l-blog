@@ -1,4 +1,6 @@
-
+---
+title: Redis
+---
 # 1. 简介
 
 -  Redis中文网：[https://www.redis.net.cn](https://www.redis.net.cn) 

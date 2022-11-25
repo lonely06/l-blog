@@ -1,4 +1,6 @@
-
+---
+title: Spring cache
+---
 # 1. 简介
 
 -  **Spring Cache**是一个框架，实现了基于注解的缓存功能。 
