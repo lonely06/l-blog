@@ -974,7 +974,7 @@ SELECT * FROM emp WHERE emp.`salary` = (SELECT MAX(emp.`salary`) FROM emp);
 标量子查询(子查询的结果是单行单列的)：
 
       - 
-子查询可以作为条件，使用运算符去判断。 运算符： `> >= < <= = <>`
+子查询可以作为条件，使用运算符去判断。 运算符： > >= < <= = <>
 
       - 
 代码实例
@@ -1011,7 +1011,7 @@ SELECT * FROM emp WHERE emp.`dept_id` IN (SELECT id FROM dept WHERE dept.`NAME`=
 行子查询(子查询结果为一行多列)
 
       - 
-常用操作符：`=, <>, in, not in`
+常用操作符：=, <>, in, not in
 
       - 
 代码实列

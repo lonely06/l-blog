@@ -1,6 +1,4 @@
----
-title: Spring MVC
----
+
 # 1 概述
 
 - SpringMVC是一种基于Java实现MVC模型的轻量级Web框架
