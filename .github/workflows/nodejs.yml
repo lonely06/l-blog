@@ -25,7 +25,5 @@ jobs:
           username: ${{ secrets.ftp_user }}
           password: ${{ secrets.ftp_pwd }}
           local-dir: build/
-#           server-dir: /root/l-blog/build/
-#           protocol: ftps
         env:
           CI: true
