@@ -21,7 +21,7 @@ jobs:
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
-          ftp-server: sftp://42.192.230.159/root/l-blog/build
+          ftp-server: ${{ secrets.ftp_serve }}
           ftp-username: ${{ secrets.ftp_user }}
           ftp-password: ${{ secrets.ftp_pwd }}
           local-dir: build/
