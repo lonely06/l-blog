@@ -13,6 +13,7 @@ Nginx是一款轻量级的Web服务器/反向代理服务器及电子邮件（IM
 ```shell
 # 查看版本
 nginx -v
+nginx -V
 
 # 检查配置文件
 nginx -t
@@ -150,5 +151,4 @@ upstream targetserver{
 }
 # weight权重是相对的，在上述的配置中，效果就是，在大数据量的请求下，最终8080接收的请求数是8081的两倍。
 ```
-
 

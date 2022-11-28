@@ -30,7 +30,7 @@ tar -zxvf nginx-1.16.1.tar.gz
 配置nginx编译环境
 ```shell
 cd nginx-1.16.1
-./configure --prefix=/usr/local/nginx # --prefix 指定的目录，就是我们安装Nginx的目录
+./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-http_ssl_module # --prefix 指定的目录，就是我们安装Nginx的目录。后面两项为安装的模块
 ```
 
 
@@ -44,16 +44,15 @@ make & make install
    6. 
 配置到全局
 
-      1. 
-`vim /etc/profile`
-<br />可能需先配置jdk
-<br />![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210212121079.png#alt=image-20221021212133981)
+      1. `vim /etc/profile`
+可能需先配置jdk
+![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210212121079.png#alt=image-20221021212133981)
 
-      2. 
-`source /etc/profile`重新加载文件。即可在任意目录下执行nginx命令
+2. 
+      `source /etc/profile`重新加载文件。即可在任意目录下执行nginx命令
 
 3. 
-目录结构
+   目录结构
 
    - 重点目录/文件
 | 目录/文件 | 说明 | 备注 |
