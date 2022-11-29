@@ -13,7 +13,7 @@ title: Spring 配置文件
 
 - Spring Framework的5版本目前没有最新的架构图，而最新的是4版本，所以接下来主要研究的是4的架构图
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/20220813161550.png#crop=0&crop=0&crop=1&crop=1&id=oKmeb&originHeight=840&originWidth=1874&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220813161550.png)
 
 (1)核心层
 
@@ -107,7 +107,7 @@ Spring创建了一个容器用来存放所创建的对象，这个容器就叫IO
 
 2. 添加spring配置文件<br />resources下添加spring配置文件applicationContext.xml
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/20220813163632.png#crop=0&crop=0&crop=1&crop=1&id=fLzpn&originHeight=852&originWidth=1407&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220813163632.png)
 
 3. 在配置文件中完成bean的配置
 
@@ -214,12 +214,12 @@ public class BookServiceImpl implements BookService {
 
 ### 4.1 bean基础配置
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/20220813170359.png#crop=0&crop=0&crop=1&crop=1&id=dvbE7&originHeight=270&originWidth=1048&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220813170359.png)
 
 
 #### 4.1.1 bean基础配置(id与class)
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/20220813165530.png#crop=0&crop=0&crop=1&crop=1&id=GiSMo&originHeight=828&originWidth=1874&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220813165530.png)
 
 - 注意 
    - 不能使用接口来作为class属性（接口不能创建对象）
@@ -227,7 +227,7 @@ public class BookServiceImpl implements BookService {
 
 #### 4.1.2 bean的name属性
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/20220813165852.png#crop=0&crop=0&crop=1&crop=1&id=EUvgT&originHeight=481&originWidth=1872&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220813165852.png)
 
 - 注意 
    - bean依赖注入的ref属性指定bean，必须在容器中存在
@@ -235,7 +235,7 @@ public class BookServiceImpl implements BookService {
 
 #### 4.1.3 bean作用范围scope配置
 
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202211251613516.png)
+![](http://img.lonely.icu/lonely-md/202211251613516.png)
 
 - 为什么bean默认为单例? 
    - bean对象只有一个就避免了对象的频繁创建与销毁，达到了bean对象的复用，性能高
@@ -860,7 +860,7 @@ ApplicationContext ctx = new FileSystemXmlApplicationContext("applicationContext
 
 ## 7.3 容器类层次结构
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/20220813214159.png#crop=0&crop=0&crop=1&crop=1&id=xVVtS&originHeight=656&originWidth=1983&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220813214159.png)
 
 
 #### 2.2.4 BeanFactory的使用
@@ -895,9 +895,9 @@ ApplicationContext ctx = new FileSystemXmlApplicationContext("applicationContext
 
 ## 8.2 bean相关
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/20220813214652.png#crop=0&crop=0&crop=1&crop=1&id=N7A23&originHeight=828&originWidth=1971&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220813214652.png)
 
 
 ## 8.3 依赖注入相关
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/20220813214642.png#crop=0&crop=0&crop=1&crop=1&id=zd7yr&originHeight=906&originWidth=1984&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220813214642.png)

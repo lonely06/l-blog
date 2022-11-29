@@ -11,14 +11,14 @@ rpm -e --nodeps  软件名称
 firewall-cmd --zone=public --add-port=3306/tcp --permanent
 firewall-cmd --reload
 ```
- 
+
 
 
 ## 1. 下载
 
 [https://downloads.mysql.com/archives/community/](https://downloads.mysql.com/archives/community/)
 
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210160834502.png#crop=0&crop=0&crop=1&crop=1&id=uE0NS&originHeight=787&originWidth=1997&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/202210160834502.png)
 
 
 ## 2. mysql-8.0.28 安装
@@ -28,7 +28,7 @@ firewall-cmd --reload
 ```shell
 tar -xvf mysql-8.0.28-1.el7.x86_64.rpm-bundle.tar
 ```
- 
+
 
 3.  安装 
 ```shell
@@ -52,7 +52,7 @@ rpm -ivh mysql-community-icu-data-files-8.0.28-1.el7.x86_64.rpm
 
 rpm -ivh  mysql-community-server-8.0.28-1.el7.x86_64.rpm
 ```
- 
+
 
 4.  启动服务 
 ```shell
@@ -71,13 +71,13 @@ systemctl stop mysqld
 # 设置开机自启
 systemctl enable mysqld
 ```
- 
+
 
 5.  查询mysql临时密码 
 ```shell
 cat /var/log/mysqld.log | grep password
 ```
- 
+
 
 6.  登录/修改密码 
 ```shell
@@ -105,7 +105,7 @@ exit
 
 # 重新连接
 ```
- 
+
 
 
 ## 3. mysql-5.7.25 安装
@@ -115,7 +115,7 @@ exit
 ```shell
 tar -xvf mysql-5.7.25-1.el7.x86_64.rpm-bundle.tar
 ```
- 
+
 
 3.  安装 
 ```shell
@@ -133,7 +133,7 @@ yum install net-tools
 
 rpm -ivh mysql-community-server-5.7.25-1.el7.x86_64.rpm
 ```
- 
+
 
 4.  启动服务 
 ```shell
@@ -152,13 +152,13 @@ systemctl stop mysqld
 # 设置开机自启
 systemctl enable mysqld
 ```
- 
+
 
 5.  查询mysql临时密码 
 ```shell
 cat /var/log/mysqld.log | grep password
 ```
- 
+
 
 6.  登录/修改密码 
 ```shell
@@ -182,11 +182,11 @@ exit
 
 # 重新连接
 ```
- 
+
 
 -  注意： 
    -  当出现连接失败时，可尝试在链接后添加useSSL=false参数 
 ```shell
 jdbc:mysql://192.168.19.100:3306?useSSL=false
 ```
- 
+

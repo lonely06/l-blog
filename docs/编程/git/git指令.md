@@ -16,7 +16,7 @@ sidebar_position: 1
 
 ## 工作流程
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/image-20220510202550396.png#crop=0&crop=0&crop=1&crop=1&id=WStrr&originHeight=447&originWidth=1297&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220510202550396.png)
 
 
 ## 安装
@@ -39,7 +39,7 @@ sidebar_position: 1
 git config --global user.name "..."
 git config --global user.email "..."
 ```
- 
+
 
 3.  查看配置信息 
 ```bash
@@ -47,7 +47,7 @@ git config --list
 git config --global user.name
 git config --global user.email
 ```
- 
+
 
 
 ### 为常用指令配置别名(可选)
@@ -58,7 +58,7 @@ git config --global user.email
 #用于输出git提交日志
 alias git-log='git log --pretty=oneline --all --graph --abbrev-commit'
 ```
- 
+
 
 
 ### 解决GitBash乱码问题
@@ -70,7 +70,7 @@ alias git-log='git log --pretty=oneline --all --graph --abbrev-commit'
 export LANG="zh_CN.UTF-8"
 export LC_ALL="zh_CN.UTF-8"
 ```
- 
+
 
 
 # 本地仓库
@@ -92,7 +92,7 @@ export LC_ALL="zh_CN.UTF-8"
 
 **暂存区**：.git文件夹中有很多文件，其中有一个index文件就是暂存区，也可以叫做stage。暂存区是一个临时保存修改文件的地方
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/image-20220510142658980.png#crop=0&crop=0&crop=1&crop=1&id=kahtF&originHeight=386&originWidth=920&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220510142658980.png)
 
 
 ## Git工作区中文件的状态
@@ -213,7 +213,7 @@ doc/**/*.pdf
 ```shell
 git remote add origin git@gitee.com:lonely06/test.git
 ```
- 
+
 
 
 ### 推送到远程仓库

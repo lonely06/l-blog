@@ -11,7 +11,7 @@ title: Redis
    -  集合(set)：无序集合，没有重复元素 
    -  有序集合(sorted set / zset)：集合中每个元素关联一个double类型的分数（score），根据分数升序排序，没有重复元素，分数可以重复 
 
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210172053585.png#crop=0&crop=0&crop=1&crop=1&id=h075w&originHeight=631&originWidth=1093&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/202211291405701.png)
 
 
 # 2. 常用命令
@@ -34,7 +34,7 @@ title: Redis
 -  获取哈希表中所有值<br />`hvals key` 
 -  获取在哈希表中指定key的所有字段和值<br />`hgetall key` 
 
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210172101504.png#crop=0&crop=0&crop=1&crop=1&id=Ng6KD&originHeight=153&originWidth=988&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/202210172101504.png)
 
 
 ## 2.3 列表list
@@ -45,7 +45,7 @@ title: Redis
 -  获取列表长度<br />`llen key` 
 -  出并获取列表的最后一个元素，如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止<br />`brpop key1 [key2] timeout` 
 
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210172104027.png#crop=0&crop=0&crop=1&crop=1&id=UjWtz&originHeight=177&originWidth=1047&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/202210172104027.png)
 
 
 ## 2.4 集合set
@@ -58,7 +58,7 @@ title: Redis
 -  返回给定所有集合的差集<br />`sdiff key1 [key2]` 
 -  移除集合中一个或多个成员<br />`srem key member1 [member2]` 
 
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210172107325.png#crop=0&crop=0&crop=1&crop=1&id=FCkAF&originHeight=169&originWidth=993&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/202210172107325.png)
 
 
 ## 2.5 有序集合sorted set
@@ -91,7 +91,7 @@ title: Redis
 	<version>2.8.0</version>
 </dependency>
 ```
- 
+
 
 -  步骤 
    1. 获取连接
@@ -165,7 +165,7 @@ public class JedisPoolUtils {
 	}
 }
 ```
- 
+
 
 
 ## 3.2 spring data redis
@@ -178,7 +178,7 @@ public class JedisPoolUtils {
 	<version>2.4.8</version>
 </dependency>
 ```
- 
+
 
 -  springboot中maven坐标 
 ```xml
@@ -187,7 +187,7 @@ public class JedisPoolUtils {
 	<artifactId>spring-boot-starter-data-redis</artifactId>
 </dependency>
 ```
- 
+
 
 -  spring data redis中进行了封装：RedisTemplate 
    - ValueOperations：简单K-V操作
@@ -442,7 +442,7 @@ save 300 10
 #after 60 sec if at least 10000 keys changed
 save 60 10000
 ```
- 
+
 
 2.  AOF：日志记录的方式，可以记录每一条命令的操作。可以每一次命令操作后，持久化数据 
    -  编辑redis.conf文件 
@@ -452,4 +452,4 @@ appendonly no（关闭aof） --> appendonly yes （开启aof）
 appendfsync everysec ： 每隔一秒进行一次持久化
 # appendfsync no	 ： 不进行持久化
 ```
- 
+

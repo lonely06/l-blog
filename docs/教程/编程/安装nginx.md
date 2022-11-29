@@ -46,7 +46,7 @@ make & make install
 
       1. `vim /etc/profile`
 可能需先配置jdk
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210212121079.png#alt=image-20221021212133981)
+![](http://img.lonely.icu/lonely-md/202210212121079.png)
 
 2. 
       `source /etc/profile`重新加载文件。即可在任意目录下执行nginx命令

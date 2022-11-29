@@ -41,7 +41,7 @@ mkdir  zkdata
 vim /usr/local/apache-zooKeeper-3.5.6-bin/conf/zoo.cfg
 ```
 
-<br />![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210242025133.png#alt=image-20221024202525023)
+<br />![](http://img.lonely.icu/lonely-md/202210242025133.png)
 
 2. 
 启动zookeeper
@@ -62,5 +62,4 @@ vim /usr/local/apache-zooKeeper-3.5.6-bin/conf/zoo.cfg
 ```shell
 /usr/local/apache-zooKeeper-3.5.6-bin/bin/zkServer.sh  stop
 ```
-
 

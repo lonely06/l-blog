@@ -14,7 +14,7 @@ title: Spring AOP
    - 切入点（Pointcut）：匹配连接点的式子，也是具有共性功能的方法描述
    - 通知（Advice）：若干个方法的共性功能，在切入点处执行，最终体现为一个方法
    - 切面（Aspect）：描述通知与切入点的对应关系
-   - 目标对象（Target）：被代理的原始对象成为目标对象<br />![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815154430.png#crop=0&crop=0&crop=1&crop=1&id=STEKJ&originHeight=703&originWidth=1642&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+   - 目标对象（Target）：被代理的原始对象成为目标对象<br />![](http://img.lonely.icu/lonely-md/20220815154430.png)
 
 
 # 2 AOP快速入门
@@ -82,7 +82,7 @@ public class SpringConfig {
    - 要被实例化bean对象的类中的方法和切入点进行匹配 
       - 匹配失败，创建原始对象，直接调用原始对象的方法
       - 匹配成功，创建原始对象（目标对象）的代理对象 
-         - 最终运行的是代理对象的方法，在该方法中会对原始方法进行功能增强<br />![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815155813.png#crop=0&crop=0&crop=1&crop=1&id=ye7d6&originHeight=1112&originWidth=1900&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+         - 最终运行的是代理对象的方法，在该方法中会对原始方法进行功能增强<br />![](http://img.lonely.icu/lonely-md/20220815155813.png)
 4.  获取bean执行方法 
    - 获取的bean是原始对象时，调用方法并执行，完成操作
    - 获取的bean是代理对象时，根据代理对象的运行模式运行原始方法与增强的内容，完成操作
@@ -100,7 +100,7 @@ public class SpringConfig {
 ```
 execution(* com.itheima.service.*Service.*(..))
 ```
- 
+
 
 - 切入点表达式描述通配符： 
    - `*`：匹配任意符号（常用）
@@ -124,7 +124,7 @@ execution(* com.itheima.*.*Service.find*(..))
 execution(* com.itheima.*.*Service.save*(..))
 将项目中所有业务层方法的以save开头的方法匹配
 ```
- 
+
 
 
 ## 4.2 AOP通知类型
@@ -134,7 +134,7 @@ execution(* com.itheima.*.*Service.save*(..))
    2. 后置通知`@After`
    3. **环绕通知(重点)**`@Around`
    4. 返回后通知(了解)`@AfterReturning`
-   5. 抛出异常后通知(了解)`@AfterThrowing`<br />![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815160744.png#crop=0&crop=0&crop=1&crop=1&id=H3lIm&originHeight=650&originWidth=1055&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+   5. 抛出异常后通知(了解)`@AfterThrowing`<br />![](http://img.lonely.icu/lonely-md/20220815160744.png)
 - 注意： 
    1. 环绕通知在原始方法的前后进行增强，须对原始操作进行调用
 ```java
@@ -210,7 +210,7 @@ public class MyAdvice {
 ```
 
 - 注意: 
-   - proceed()方法有两个构造方法  ![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815160946.png#crop=0&crop=0&crop=1&crop=1&id=kiYLg&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+   - proceed()方法有两个构造方法  ![](http://img.lonely.icu/lonely-md/20220815160946.png)
    - 无参数的proceed，当原始方法有参数，会在调用的过程中自动传入参数
    - 当需要修改原始方法的参数时，采用带有参数的方法
 
@@ -256,7 +256,8 @@ public class MyAdvice {
 ```
 
 - 注意: 
-   1. 参数名要一致![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815161054.png#crop=0&crop=0&crop=1&crop=1&id=qMsTG&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)<br />2.afterReturning方法参数的顺序![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815161101.png#crop=0&crop=0&crop=1&crop=1&id=sqE6l&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+   1. 参数名要一致![](http://img.lonely.icu/lonely-md/20220815161054.png)
+   2. afterReturning方法参数的顺序![](http://img.lonely.icu/lonely-md/20220815161101.png)
 
 
 ### 4.3.3 获取异常(了解)
@@ -345,7 +346,7 @@ public class AccountServiceImpl implements AccountService {
 
 }
 ```
- 
+
 
    - 注意: 
       - @Transactional可以写在接口类上、接口方法上、实现类上和实现类方法上 
@@ -385,7 +386,7 @@ public class JdbcConfig {
     }
 }
 ```
- 
+
 
    - 注意：事务管理器要根据使用技术进行选择，Mybatis框架使用的是JDBC事务，可以直接使用`DataSourceTransactionManager`
 3. 开启事务注解
@@ -399,7 +400,7 @@ public class JdbcConfig {
 public class SpringConfig {
 }
 ```
- 
+
 
 
 ## 5.2 Spring事务角色
@@ -413,7 +414,7 @@ public class SpringConfig {
 
 ### 5.3.1 事务配置
 
-- 在`@Transactional`注解的参数上进行设置![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815164440.png#crop=0&crop=0&crop=1&crop=1&id=cZ6us&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+- 在`@Transactional`注解的参数上进行设置![](http://img.lonely.icu/lonely-md/20220815164440.png)
 
 - readOnly：true只读事务，false读写事务，增删改要设为false,查询设为true。
 - timeout:设置超时时间单位秒，在多长时间之内事务没有提交成功就自动回滚，-1表示不设置超时时间。
@@ -447,6 +448,6 @@ public class LogServiceImpl implements LogService {
     }
 }
 ```
- 
 
-- 事务传播行为的可选值![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815163724.png#crop=0&crop=0&crop=1&crop=1&id=xnp0y&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+
+- 事务传播行为的可选值![](http://img.lonely.icu/lonely-md/20220815163724.png)

@@ -45,7 +45,7 @@ title: Spring MVC
     </plugins>
   </build>
 ```
- 
+
 
 2. 创建配置类
 
@@ -112,7 +112,7 @@ public class ServletContainersInitConfig extends AbstractDispatcherServletInitia
    - 扫描指定包及其子包下所有类上的注解，如Controller类上的@Controller注解
 5. 加载UserController，每个@RequestMapping的名称对应一个具体的方法 
    - 此时就建立了 `/save` 和 save方法的对应关系
-6. 执行getServletMappings方法，设定SpringMVC拦截请求的路径规则   ![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815172610.png#crop=0&crop=0&crop=1&crop=1&id=WVthu&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=) 
+6. 执行getServletMappings方法，设定SpringMVC拦截请求的路径规则   ![](http://img.lonely.icu/lonely-md/20220815172610.png) 
    - `/`代表所拦截请求的路径规则，只有被拦截后才能交给SpringMVC来处理请求
 
 
@@ -237,7 +237,7 @@ public class BookController {
 ```
 http://localhost/commonParam?name=itcast
 ```
- 
+
 
 - 接收参数：
 ```java
@@ -252,7 +252,7 @@ public class UserController {
     }
 }
 ```
- 
+
 
 
 ##### GET发送多个参数
@@ -261,7 +261,7 @@ public class UserController {
 ```
 http://localhost/commonParam?name=itcast&age=15
 ```
- 
+
 
 - 接收参数：
 ```java
@@ -277,7 +277,7 @@ public class UserController {
     }
 }
 ```
- 
+
 
 
 ##### GET请求中文乱码
@@ -304,7 +304,7 @@ public class UserController {
 
 ##### POST发送参数
 
-- 发送请求与参数:<br />![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815175239.png#crop=0&crop=0&crop=1&crop=1&id=fSa7O&originHeight=381&originWidth=2107&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+- 发送请求与参数:<br />![](http://img.lonely.icu/lonely-md/20220815175239.png)
 - 接收参数：和GET一致
 ```java
 @Controller
@@ -319,7 +319,7 @@ public class UserController {
     }
 }
 ```
- 
+
 
 
 ##### POST请求中文乱码
@@ -348,7 +348,7 @@ public class ServletContainersInitConfig extends AbstractAnnotationConfigDispatc
     }
 }
 ```
- 
+
 
 
 ### 3.2.2 五种类型参数传递
@@ -366,7 +366,7 @@ public class ServletContainersInitConfig extends AbstractAnnotationConfigDispatc
         return "{'module':'common param different name'}";
     }
 ```
- 
+
 
 
 #### 3.2.2.2 POJO数据类型
@@ -381,17 +381,17 @@ public String pojoParam(User user){
     return "{'module':'pojo param'}";
 }
 ```
- 
+
 
 
 #### 3.2.2.3 嵌套POJO类型参数
 
-- 嵌套POJO参数：请求参数名与形参对象属性名相同，按照对象层次结构关系即可接收嵌套POJO属性参数<br />![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815181316.png#crop=0&crop=0&crop=1&crop=1&id=P2msY&originHeight=406&originWidth=1243&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+- 嵌套POJO参数：请求参数名与形参对象属性名相同，按照对象层次结构关系即可接收嵌套POJO属性参数<br />![](http://img.lonely.icu/lonely-md/20220815181316.png)
 
 
 #### 3.2.2.4 数组类型参数
 
-- 数组参数：请求参数名与形参对象属性名相同且请求参数为多个，定义数组类型即可接收参数<br />![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815181831.png#crop=0&crop=0&crop=1&crop=1&id=IbweV&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+- 数组参数：请求参数名与形参对象属性名相同且请求参数为多个，定义数组类型即可接收参数<br />![](http://img.lonely.icu/lonely-md/20220815181831.png)
 
 - 后台接收参数:
 ```java
@@ -403,12 +403,12 @@ public String pojoParam(User user){
         return "{'module':'array param'}";
     }
 ```
- 
+
 
 
 #### 3.2.2.5 集合类型参数
 
-发送请求和参数:<br />![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220815181831.png#crop=0&crop=0&crop=1&crop=1&id=mPbjM&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+发送请求和参数:<br />![](http://img.lonely.icu/lonely-md/20220815181831.png)
 
 - 后台接收参数:
 ```java
@@ -420,7 +420,7 @@ public String listParam(@RequestParam List<String> likes){
     return "{'module':'list param'}";
 }
 ```
- 
+
 
 
 ### 3.2.3 JSON数据传输参数
@@ -436,7 +436,7 @@ public String listParam(@RequestParam List<String> likes){
     <version>2.9.0</version>
 </dependency>
 ```
- 
+
 
 2.  开启SpringMVC注解支持 
 ```java
@@ -447,7 +447,7 @@ public String listParam(@RequestParam List<String> likes){
 public class SpringMvcConfig {
 }
 ```
- 
+
 
 3.  参数前添加[@RequestBody ](/RequestBody )  
 ```java
@@ -459,7 +459,7 @@ public String listParamForJson(@RequestBody List<String> likes){
     return "{'module':'list common for json param'}";
 }
 ```
- 
+
 
 
 #### 3.2.3.2 JSON对象数据
@@ -471,7 +471,7 @@ public String listParamForJson(@RequestBody List<String> likes){
 	"age":15
 }
 ```
- 
+
 
 ```
 - 后端接收数据：
@@ -482,7 +482,7 @@ public String listParamForJson(@RequestBody List<String> likes){
 	    System.out.println("pojo(json)参数传递 user ==> "+user);
 	    return "{'module':'pojo for json param'}";
 	}
-	```
+```
 #### 3.2.3.3 JSON对象数组
 - 请求和数据的发送:
 	```json
@@ -576,7 +576,7 @@ public class UserController {
     
 }
 ```
- 
+
 
 2. 响应POJO集合对象
 ```java
@@ -604,7 +604,7 @@ public class UserController {
     
 }
 ```
- 
+
 
 
 ### [@ReponseBody ](/ReponseBody ) 
@@ -1087,7 +1087,7 @@ public class ProjectExceptionAdvice {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220816150306.png#crop=0&crop=0&crop=1&crop=1&id=Vl4LK&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220816150306.png)
 
 
 # 8 拦截器
@@ -1095,14 +1095,14 @@ public class ProjectExceptionAdvice {
 
 ## 8.1 拦截器概念
 
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220816150657.png#crop=0&crop=0&crop=1&crop=1&id=P6sxs&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220816150657.png)
 
 - 拦截器（Interceptor）是一种动态拦截方法调用的机制，在SpringMVC中动态拦截控制器方法的执行
 - 作用：对原始方法进行增强
 
 - 拦截器和过滤器的区别 
    - 归属不同：Filter属于Servlet技术，Interceptor属于SpringMVC技术
-   - 拦截内容不同：Filter对所有访问进行增强，Interceptor仅针对SpringMVC的访问进行增强<br />![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220816150711.png#crop=0&crop=0&crop=1&crop=1&id=CdWWN&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+   - 拦截内容不同：Filter对所有访问进行增强，Interceptor仅针对SpringMVC的访问进行增强<br />![](http://img.lonely.icu/lonely-md/20220816150711.png)
 
 
 ## 8.2 拦截器入门
@@ -1167,7 +1167,7 @@ public class SpringMvcConfig{
 }
 ```
 
-拦截器的执行流程:<br />![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220816151124.png#crop=0&crop=0&crop=1&crop=1&id=ogqDa&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+拦截器的执行流程:<br />![](http://img.lonely.icu/lonely-md/20220816151124.png)
 
 
 ## 8.3 拦截器参数
@@ -1223,4 +1223,4 @@ public class SpringMvcConfig implements WebMvcConfigurer {
 }
 ```
 
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/md/20220816151741.png#crop=0&crop=0&crop=1&crop=1&id=o7G63&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220816151741.png)

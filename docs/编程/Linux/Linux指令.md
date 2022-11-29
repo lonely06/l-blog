@@ -14,7 +14,7 @@ vim ifcfg-ens33
 # 将文件中最后一行的ONBOOT=no改为yes
 ```
 
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210151719584.png#crop=0&crop=0&crop=1&crop=1&id=nJnQF&originHeight=505&originWidth=578&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/202210151719584.png)
 
 - 疑难问题：[service network restart失败最全解决方案](https://blog.csdn.net/qq_44833733/article/details/127953041)
 
@@ -29,15 +29,17 @@ NETMASK="255.255.255.0"         # 子网掩码
 GATEWAY="192.168.138.2"         # 网关地址
 DNS1="192.168.138.2"            # DNS服务器
 ```
-<br />VMware->编辑->虚拟网络编辑器![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210151927858.png#crop=0&crop=0&crop=1&crop=1&id=DQPQ8&originHeight=834&originWidth=770&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)<br />须保持子网掩码、网关地址、DNS服务器中的与图片中的保持一致 
+<br />VMware->编辑->虚拟网络编辑器
+
+![](http://img.lonely.icu/lonely-md/202210151927858.png)<br />须保持子网掩码、网关地址、DNS服务器中的与图片中的保持一致 
 
 2.  重启网络服务 `systemctl restart network` 
-3.  ![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210151931064.png#crop=0&crop=0&crop=1&crop=1&id=GQzjQ&originHeight=798&originWidth=1454&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)<br />更改选框中的内容与虚拟中的设置保持一致![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210151931759.png#crop=0&crop=0&crop=1&crop=1&id=zzUxk&originHeight=726&originWidth=582&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=) 
+3.  ![](http://img.lonely.icu/lonely-md/202210151931064.png)<br />更改选框中的内容与虚拟中的设置保持一致![](http://img.lonely.icu/lonely-md/202210151931759.png) 
 
 
 # 2. 目录结构
 
-![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210151720644.png#crop=0&crop=0&crop=1&crop=1&id=OgxuD&originHeight=440&originWidth=807&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/202210151720644.png)
 
 | 编号 | 目录 | 含义 |
 | --- | --- | --- |
@@ -252,7 +254,7 @@ grep hello *.java			#查找当前目录中所有.java结尾的文件中包含hel
    3. Linux文件权限分为三级 : 文件所有者（Owner）、用户组（Group）、其它用户（Other Users）
    4. 只有文件的所有者和超级用户可以修改文件或目录的权限
    5. 要执行Shell脚本需要有对此脚本文件的执行权限(x)，如果没有则不能执行
-- ![](https://cdn.jsdelivr.net/gh/lonely06/images@main/healthy/202210160925506.png#crop=0&crop=0&crop=1&crop=1&id=V9fx9&originHeight=486&originWidth=1099&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+- ![](http://img.lonely.icu/lonely-md/202210160925506.png)
 | 值 | 权限 | rwx |
 | --- | --- | --- |
 | 7 | 读 + 写 + 执行 | rwx |

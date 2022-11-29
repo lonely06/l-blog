@@ -77,7 +77,7 @@ public class SpringConfig {
 ```
 @ComponentScan({com.itheima.service","com.itheima.dao"})
 ```
- 
+
 
 - 读取Spring核心配置文件初始化容器对象切换为读取Java配置类初始化容器对象
 ```java
@@ -86,7 +86,7 @@ ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.
 //加载配置类初始化容器
 ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
 ```
- 
+
 
 
 ## 1.3 注解开发bean作用范围与生命周期管理
@@ -138,7 +138,7 @@ public class BookDaoImpl implements BookDao {
   <version>1.3.2</version>
 </dependency>
 ```
- 
+
 
    - 原因：从JDK9以后jdk中的javax.annotation包被移除了，这两个注解刚好就在这个包中。
 
@@ -233,19 +233,19 @@ public class BookDaoImpl implements BookDao {
 ```java
 @PropertySource({"jdbc.properties","xxx.properties"})
 ```
- 
+
 
    - `@PropertySource`注解属性中不支持使用通配符`*`
 ```java
 @PropertySource({"*.properties"})
 ```
- 
+
 
    - `@PropertySource`注解属性中可以把`classpath:`加上,代表从当前项目的根路径找文件
 ```java
 @PropertySource({"classpath:jdbc.properties"})
 ```
- 
+
 
 
 # 2 IOC/DI注解开发管理第三方bean
@@ -352,7 +352,7 @@ public DataSource dataSource(BookDao bookDao){
 
 # 3 注解开发总结
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/20220814205635.png#crop=0&crop=0&crop=1&crop=1&id=kF4cs&originHeight=872&originWidth=1974&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220814205635.png)
 
 
 # 4 Spring整合
@@ -471,9 +471,9 @@ public class MybatisConfig {
 }
 ```
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/20220814210756.png#crop=0&crop=0&crop=1&crop=1&id=BFGIF&originHeight=864&originWidth=1813&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220814210756.png)
 
-![](https://raw.githubusercontent.com/lonely06/images/main/md/20220814210821.png#crop=0&crop=0&crop=1&crop=1&id=lXqFP&originHeight=713&originWidth=1818&originalType=binary&ratio=1&rotation=0&showTitle=false&status=done&style=none&title=)
+![](http://img.lonely.icu/lonely-md/20220814210821.png)
 
 6. 主配置类中引入Mybatis配置类
 
