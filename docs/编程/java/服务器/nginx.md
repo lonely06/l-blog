@@ -25,7 +25,7 @@ nginx
 nginx -s stop
 
 # 重新加载
-nginx -s reload1
+nginx -s reload
 ```
 
 
