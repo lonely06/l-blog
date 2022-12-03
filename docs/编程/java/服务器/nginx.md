@@ -80,7 +80,8 @@ server {
 ## 3.3 方向代理
 
 - 对于用户而言，反向代理服务器就相当于目标服务器，即用户直接访问反向代理服务器就可以获得目标服务器的资源，反向代理服务器负责将请求转发给目标服务器。用户不需要知道目标服务器的地址，也无须在用户端作任何设定，对于用户来说，访问反向代理服务器是完全无感知的。
-<br />![](http://img.lonely.icu/lonely-md/202210212137864.png)
+
+  ![](http://img.lonely.icu/lonely-md/202210212137864.png)
 
 - 
 在nginx.conf中进行配置
@@ -151,3 +152,32 @@ upstream targetserver{
 # weight权重是相对的，在上述的配置中，效果就是，在大数据量的请求下，最终8080接收的请求数是8081的两倍。
 ```
 
+# 其他
+
+## Nginx中alias与root的区别:
+
+- Nginx指定文件路径有两种方式root和alias，这两者的用法区别在于对URI的处理方法不同。
+
+- alias:
+
+  ```
+  location /abc/{
+  	alias /usr/local/nginx/html/admin/；
+  }
+  ```
+
+  - 若按照上述配置的话，则访问/abc/目录里面的文件时，ningx会自动去/usr/local/nginx/html/admin目录找文件。
+
+- root:
+
+  ```
+  location /abc/ {
+  	root /usr/local/nginx/html/admin；
+  }
+  ```
+
+  - 若按照这种配置的话，则访问/abc/目录下的文件时，nginx会去/usr/local/nginx/html/admin/abc下找文件。
+
+- alias是一个目录别名的定义，root则是最上层目录的定义。
+
+- 还有一个重要的区别是alias后面必须要用“/”结束，否则会找不到文件的。而root则可有可无。
