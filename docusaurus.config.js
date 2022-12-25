@@ -130,7 +130,7 @@ const config = {
         darkTheme: darkCodeTheme,
       },
       tableOfContents: {
-        minHeadingLevel: 2,
+        minHeadingLevel: 1,
         maxHeadingLevel: 5,
       },
     }),
