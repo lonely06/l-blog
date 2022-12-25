@@ -132,7 +132,7 @@ const config = {
       },
       tableOfContents: {
         minHeadingLevel: 2,
-        maxHeadingLevel: 7,
+        maxHeadingLevel: 6,
       },
     }),
 };
