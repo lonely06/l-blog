@@ -128,10 +128,11 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        additionalLanguages: ['java', 'scala', 'python', 'bash', 'properties', 'docker', 'git'],
       },
       tableOfContents: {
-        minHeadingLevel: 1,
-        maxHeadingLevel: 5,
+        minHeadingLevel: 2,
+        maxHeadingLevel: 7,
       },
     }),
 };
