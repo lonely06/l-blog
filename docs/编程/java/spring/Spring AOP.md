@@ -2,7 +2,7 @@
 title: Spring AOP
 ---
 
-# 1 AOP简介
+## 1 AOP简介
 
 - 概念： 
    - AOP(Aspect Oriented Programming)面向切面编程，一种编程范式，指导开发者如何组织程序结构。 
@@ -17,7 +17,7 @@ title: Spring AOP
    - 目标对象（Target）：被代理的原始对象成为目标对象<br />![](http://img.lonely.icu/lonely-md/20220815154430.png)
 
 
-# 2 AOP快速入门
+## 2 AOP快速入门
 
 1. 添加依赖
 
@@ -72,7 +72,7 @@ public class SpringConfig {
 ```
 
 
-# 3 AOP工作流程
+## 3 AOP工作流程
 
 1.  Spring容器启动 
    - 容器启动就需要去加载bean，即需要被增强的类，通知类。此时bean对象还没有创建成功
@@ -91,10 +91,10 @@ public class SpringConfig {
 - SpringAOP是在不改变原有设计(代码)的前提下对其进行增强的，它的底层采用的是代理模式实现的，所以要对原始对象进行增强，就需要对原始对象创建代理对象，在代理对象中的方法把通知[如:MyAdvice中的method方法]内容加进去，就实现了增强,这就是我们所说的代理(Proxy)。
 
 
-# 4. AOP配置管理
+## 4. AOP配置管理
 
 
-## 4.1 AOP切入点表达式
+### 4.1 AOP切入点表达式
 
 - 切入点表达式标准格式：动作关键字(访问修饰符  返回值  包名.类/接口名.方法名（参数）异常名)
 ```
@@ -127,7 +127,7 @@ execution(* com.itheima.*.*Service.save*(..))
 
 
 
-## 4.2 AOP通知类型
+### 4.2 AOP通知类型
 
 - 共5种通知类型: 
    1. 前置通知`@Before`
@@ -160,13 +160,13 @@ public class MyAdvice {
    5. 返回后通知需原始方法正常执行后才会被执行，如果方法执行的过程中出现了异常，那么返回后通知是不会被执行。后置通知是不管原始方法有没有抛出异常都会被执行。
 
 
-## 4.3 AOP通知获取数据
+### 4.3 AOP通知获取数据
 
 
-### 4.3.1 获取参数
+#### 4.3.1 获取参数
 
 
-#### 非环绕通知获取方式
+##### 非环绕通知获取方式
 
 - 在方法上添加JoinPoint,通过JoinPoint来获取参数，适用于`前置`、`后置`、`返回后`、`抛出异常后`通知
 
@@ -188,7 +188,7 @@ public class MyAdvice {
 ```
 
 
-#### 环绕通知获取方式
+##### 环绕通知获取方式
 
 - 使用ProceedingJoinPoint中的`getArgs()`方法
 
@@ -215,10 +215,10 @@ public class MyAdvice {
    - 当需要修改原始方法的参数时，采用带有参数的方法
 
 
-### 4.3.2 获取返回值
+#### 4.3.2 获取返回值
 
 
-#### 环绕通知获取返回值
+##### 环绕通知获取返回值
 
 ```java
 @Component
@@ -239,7 +239,7 @@ public class MyAdvice {
 ```
 
 
-#### 返回后通知获取返回值
+##### 返回后通知获取返回值
 
 ```java
 @Component
@@ -260,10 +260,10 @@ public class MyAdvice {
    2. afterReturning方法参数的顺序![](http://img.lonely.icu/lonely-md/20220815161101.png)
 
 
-### 4.3.3 获取异常(了解)
+#### 4.3.3 获取异常(了解)
 
 
-#### 环绕通知获取异常
+##### 环绕通知获取异常
 
 ```java
 @Component
@@ -288,7 +288,7 @@ public class MyAdvice {
 ```
 
 
-#### 抛出异常后通知获取异常
+##### 抛出异常后通知获取异常
 
 ```java
 @Component
@@ -305,19 +305,19 @@ public class MyAdvice {
 ```
 
 
-# 5 AOP事务管理
+## 5 AOP事务管理
 
 
-## 5.1 Spring事务简介
+### 5.1 Spring事务简介
 
 
-### 5.1.1 相关概念
+#### 5.1.1 相关概念
 
 - 事务作用：在数据层保障一系列的数据库操作同成功同失败
 - Spring事务作用：在数据层或业务层保障一系列的数据库操作同成功同失败
 
 
-### 5.1.2 事务管理步骤
+#### 5.1.2 事务管理步骤
 
 1. 在需要被事务管理的方法上添加注解`@Transactional`
 ```java
@@ -403,16 +403,16 @@ public class SpringConfig {
 
 
 
-## 5.2 Spring事务角色
+### 5.2 Spring事务角色
 
 - 事务管理员：发起事务方，在Spring中通常指代业务层开启事务的方法
 - 事务协调员：加入事务方，在Spring中通常指代数据层方法，也可以是业务层方法
 
 
-## 5.3 Spring事务属性
+### 5.3 Spring事务属性
 
 
-### 5.3.1 事务配置
+#### 5.3.1 事务配置
 
 - 在`@Transactional`注解的参数上进行设置![](http://img.lonely.icu/lonely-md/20220815164440.png)
 
@@ -431,7 +431,7 @@ public class SpringConfig {
    - SERIALIZABLE : 串行化
 
 
-### 5.3.2 事务传播行为
+#### 5.3.2 事务传播行为
 
 - 事务传播行为：事务协调员对事务管理员所携带事务的处理态度。
 - 修改logService改变事务的传播行为

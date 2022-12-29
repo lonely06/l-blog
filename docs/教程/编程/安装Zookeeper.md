@@ -2,15 +2,15 @@
 title: 安装Zookeeper
 ---
 
-# 1. 安装
+## 1. 安装
 
 
-## 1.1 环境准备
+### 1.1 环境准备
 
 ZooKeeper服务器是用Java创建的，它运行在JVM之上。需要安装JDK 7或更高版本。
 
 
-## 1.2 安装
+### 1.2 安装
 
 1. 
 上传文件
@@ -24,20 +24,20 @@ tar -zxvf apache-ZooKeeper-3.5.6-bin.tar.gz -C /usr/local
 
 
 
-# 2. 配置启动
+## 2. 配置启动
 
 1. 
 配置zoo.cfg
 ```shell
-# 进入conf目录
+## 进入conf目录
 /usr/local/apache-zooKeeper-3.5.6-bin/conf/
-# 拷贝
+## 拷贝
 cp  zoo_sample.cfg  zoo.cfg
 
-# 修改存储路径
-# 创建zooKeeper存储目录
+## 修改存储路径
+## 创建zooKeeper存储目录
 mkdir  zkdata
-# 修改zoo.cfg
+## 修改zoo.cfg
 vim /usr/local/apache-zooKeeper-3.5.6-bin/conf/zoo.cfg
 ```
 

@@ -1,10 +1,10 @@
 ---
 title: Spring 注解
 ---
-# 1 IOC/DI注解开发
+## 1 IOC/DI注解开发
 
 
-## 1.1 注解开发定义bean
+### 1.1 注解开发定义bean
 
 1. 删除原XML配置中的`
 
@@ -46,7 +46,7 @@ System.out.println(bookService);
 -  对于@Component注解，还衍生出了其他三个注解`@Controller`、`@Service`、`@Repository`分别对应`表现层`、`业务层`、`数据层` 
 
 
-## 1.2 纯注解开发模式
+### 1.2 纯注解开发模式
 
 1. 创建配置类
 
@@ -89,10 +89,10 @@ ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.cla
 
 
 
-## 1.3 注解开发bean作用范围与生命周期管理
+### 1.3 注解开发bean作用范围与生命周期管理
 
 
-### 1.3.1 作用范围  [@scope ](/scope ) 
+#### 1.3.1 作用范围  [@scope ](/scope ) 
 
 - 在其类上添加`@scope`注解
 
@@ -109,7 +109,7 @@ public class BookDaoImpl implements BookDao {
 ```
 
 
-### 1.3.2 生命周期  @PostConstruct和[@PreDestroy ](/PreDestroy ) 
+#### 1.3.2 生命周期  @PostConstruct和[@PreDestroy ](/PreDestroy ) 
 
 - 添加2个方法，在对应的方法上添加`@PostConstruct`和`@PreDestroy`注解
 
@@ -143,12 +143,12 @@ public class BookDaoImpl implements BookDao {
    - 原因：从JDK9以后jdk中的javax.annotation包被移除了，这两个注解刚好就在这个包中。
 
 
-## 1.4 注解开发依赖注入
+### 1.4 注解开发依赖注入
 
 - Spring为了使用注解简化开发，并没有提供`构造函数注入`、`setter注入`对应的注解，只提供了自动装配的注解实现。
 
 
-### 1.4.2 按照类型注入  [@Autowired ](/Autowired ) 
+#### 1.4.2 按照类型注入  [@Autowired ](/Autowired ) 
 
 - 在类的属性上添加`@Autowired`注解，去除setter方法
 
@@ -166,7 +166,7 @@ public class BookServiceImpl implements BookService {
 ```
 
 
-### 1.4.3 按名称注入  [@Qualifier ](/Qualifier ) 
+#### 1.4.3 按名称注入  [@Qualifier ](/Qualifier ) 
 
 - 使用`@Qualifier`来指定注入哪个名称的bean对象。
 - @Qualifier不能独立使用，必须和@Autowired一起使用
@@ -186,7 +186,7 @@ public class BookServiceImpl implements BookService {
 ```
 
 
-### 1.4.4 简单数据类型注入  [@Value ](/Value ) 
+#### 1.4.4 简单数据类型注入  [@Value ](/Value ) 
 
 - 使用`@Value`注解，将值写入注解的参数中
 
@@ -202,7 +202,7 @@ public class BookDaoImpl implements BookDao {
 ```
 
 
-### 1.4.5 注解读取properties配置文件  [@PropertySource ](/PropertySource ) 
+#### 1.4.5 注解读取properties配置文件  [@PropertySource ](/PropertySource ) 
 
 1. resource下准备properties文件
 2. 在配置类上添加`@PropertySource`注解，加载properties配置文件
@@ -248,15 +248,15 @@ public class BookDaoImpl implements BookDao {
 
 
 
-# 2 IOC/DI注解开发管理第三方bean
+## 2 IOC/DI注解开发管理第三方bean
 
 
-### 2.1 注解开发管理第三方bean
+#### 2.1 注解开发管理第三方bean
 
 - 在方法上添加@Bean注解。@Bean注解的作用是将方法的返回值制作为Spring管理的一个bean对象
 
 
-### 2.2 引入外部配置类
+#### 2.2 引入外部配置类
 
 1. 使用包扫描引入(不推荐) 
    - 在类上添加@Configuration注解
@@ -290,10 +290,10 @@ public class SpringConfig {
       - @Import注解在配置类中只能写一次
 
 
-### 2.3 注解开发实现为第三方bean注入资源
+#### 2.3 注解开发实现为第三方bean注入资源
 
 
-#### 2.3.1 简单数据类型
+##### 2.3.1 简单数据类型
 
 - 使用`@Value`注解引入值
 
@@ -320,7 +320,7 @@ public class JdbcConfig {
 ```
 
 
-##### 引入外部配置
+###### 引入外部配置
 
 > 1.resources目录下添加jdbc.properties
 >  
@@ -332,7 +332,7 @@ public class JdbcConfig {
 
 
 
-#### 2.3.2 引用数据类型
+##### 2.3.2 引用数据类型
 
 - 只需为bean定义方法设置形参，容器会根据类型自动装配对象
 
@@ -350,15 +350,15 @@ public DataSource dataSource(BookDao bookDao){
 ```
 
 
-# 3 注解开发总结
+## 3 注解开发总结
 
 ![](http://img.lonely.icu/lonely-md/20220814205635.png)
 
 
-# 4 Spring整合
+## 4 Spring整合
 
 
-## 4.1 整合Mybatis
+### 4.1 整合Mybatis
 
 1. 引入依赖
 
@@ -487,7 +487,7 @@ public class SpringConfig {
 ```
 
 
-## 4.2 整合Junit
+### 4.2 整合Junit
 
 1. 引入依赖
 

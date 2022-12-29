@@ -1,7 +1,7 @@
 ---
 title: Spring MVC
 ---
-# 1 概述
+## 1 概述
 
 - SpringMVC是一种基于Java实现MVC模型的轻量级Web框架
 - 优点 
@@ -9,10 +9,10 @@ title: Spring MVC
    - 灵活性强
 
 
-# 2 入门
+## 2 入门
 
 
-## 2.1 步骤
+### 2.1 步骤
 
 1. 添加依赖
 ```xml
@@ -98,10 +98,10 @@ public class ServletContainersInitConfig extends AbstractDispatcherServletInitia
 ```
 
 
-## 2.2 工作流程解析
+### 2.2 工作流程解析
 
 
-### 2.2.1 启动服务器初始化过程
+#### 2.2.1 启动服务器初始化过程
 
 1. 服务器启动，执行ServletContainersInitConfig类，初始化web容器 
    - 功能类似于以前的web.xml
@@ -116,7 +116,7 @@ public class ServletContainersInitConfig extends AbstractDispatcherServletInitia
    - `/`代表所拦截请求的路径规则，只有被拦截后才能交给SpringMVC来处理请求
 
 
-### 2.2.2 单次请求过程
+#### 2.2.2 单次请求过程
 
 1. 发送请求`http://localhost/save`
 2. web容器发现该请求满足SpringMVC拦截规则，将请求交给SpringMVC处理
@@ -127,7 +127,7 @@ public class ServletContainersInitConfig extends AbstractDispatcherServletInitia
 6. 检测到有@ResponseBody直接将save()方法的返回值作为响应体返回给请求方
 
 
-## 2.3 bean加载控制
+### 2.3 bean加载控制
 
 - SpringMVC加载其相关bean(表现层bean),也就是controller包下的类
 - Spring控制的bean 
@@ -135,7 +135,7 @@ public class ServletContainersInitConfig extends AbstractDispatcherServletInitia
    - 功能bean(DataSource,SqlSessionFactoryBean,MapperScannerConfigurer等)
 
 
-### 2.3.1 设置bean加载控制
+#### 2.3.1 设置bean加载控制
 
 方式一:修改Spring配置类，设定扫描范围为精准范围。
 
@@ -166,7 +166,7 @@ public class SpringConfig {
 - classes属性：设置排除的具体注解类，当前设置排除@Controller定义的bean
 
 
-## * 优化ServletContainersInitConfig
+### * 优化ServletContainersInitConfig
 
 ```java
 public class ServletContainersInitConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -186,10 +186,10 @@ public class ServletContainersInitConfig extends AbstractAnnotationConfigDispatc
 ```
 
 
-# 3 请求与响应
+## 3 请求与响应
 
 
-## 3.1 设置请求映射路径
+### 3.1 设置请求映射路径
 
 ```java
 @Controller
@@ -225,13 +225,13 @@ public class BookController {
 ```
 
 
-## 3.2 请求
+### 3.2 请求
 
 
-### 3.2.1 参数传递
+#### 3.2.1 参数传递
 
 
-##### GET发送单个参数
+###### GET发送单个参数
 
 - 发送请求与参数:
 ```
@@ -255,7 +255,7 @@ public class UserController {
 
 
 
-##### GET发送多个参数
+###### GET发送多个参数
 
 - 发送请求与参数:
 ```
@@ -280,7 +280,7 @@ public class UserController {
 
 
 
-##### GET请求中文乱码
+###### GET请求中文乱码
 
 - Tomcat8.5以后的版本已经处理了中文乱码的问题，是IDEA中的Tomcat插件目前只到Tomcat7，所以需要修改pom.xml来解决GET请求中文乱码问题
 
@@ -302,7 +302,7 @@ public class UserController {
 ```
 
 
-##### POST发送参数
+###### POST发送参数
 
 - 发送请求与参数:<br />![](http://img.lonely.icu/lonely-md/20220815175239.png)
 - 接收参数：和GET一致
@@ -322,7 +322,7 @@ public class UserController {
 
 
 
-##### POST请求中文乱码
+###### POST请求中文乱码
 
 - 配置过滤器
 ```java
@@ -351,10 +351,10 @@ public class ServletContainersInitConfig extends AbstractAnnotationConfigDispatc
 
 
 
-### 3.2.2 五种类型参数传递
+#### 3.2.2 五种类型参数传递
 
 
-#### 3.2.2.1 普通参数
+##### 3.2.2.1 普通参数
 
 - 如果形参与地址参数名不一致,使用@RequestParam注解
 ```java
@@ -369,7 +369,7 @@ public class ServletContainersInitConfig extends AbstractAnnotationConfigDispatc
 
 
 
-#### 3.2.2.2 POJO数据类型
+##### 3.2.2.2 POJO数据类型
 
 - POJO参数：请求参数名与形参对象属性名相同，定义POJO类型形参即可接收参数
 ```java
@@ -384,12 +384,12 @@ public String pojoParam(User user){
 
 
 
-#### 3.2.2.3 嵌套POJO类型参数
+##### 3.2.2.3 嵌套POJO类型参数
 
 - 嵌套POJO参数：请求参数名与形参对象属性名相同，按照对象层次结构关系即可接收嵌套POJO属性参数<br />![](http://img.lonely.icu/lonely-md/20220815181316.png)
 
 
-#### 3.2.2.4 数组类型参数
+##### 3.2.2.4 数组类型参数
 
 - 数组参数：请求参数名与形参对象属性名相同且请求参数为多个，定义数组类型即可接收参数<br />![](http://img.lonely.icu/lonely-md/20220815181831.png)
 
@@ -406,7 +406,7 @@ public String pojoParam(User user){
 
 
 
-#### 3.2.2.5 集合类型参数
+##### 3.2.2.5 集合类型参数
 
 发送请求和参数:<br />![](http://img.lonely.icu/lonely-md/20220815181831.png)
 
@@ -423,10 +423,10 @@ public String listParam(@RequestParam List<String> likes){
 
 
 
-### 3.2.3 JSON数据传输参数
+#### 3.2.3 JSON数据传输参数
 
 
-#### 3.2.3.1 JSON普通数据
+##### 3.2.3.1 JSON普通数据
 
 1.  pom.xml添加依赖，SpringMVC默认使用的是jackson来处理json的转换 
 ```xml
@@ -462,7 +462,7 @@ public String listParamForJson(@RequestBody List<String> likes){
 
 
 
-#### 3.2.3.2 JSON对象数据
+##### 3.2.3.2 JSON对象数据
 
 - 请求:
 ```json
@@ -483,7 +483,7 @@ public String listParamForJson(@RequestBody List<String> likes){
 	    return "{'module':'pojo for json param'}";
 	}
 ```
-#### 3.2.3.3 JSON对象数组
+##### 3.2.3.3 JSON对象数组
 - 请求和数据的发送:
 	```json
 	[
@@ -500,11 +500,11 @@ public String listParamForJson(@RequestBody List<String> likes){
 	    return "{'module':'list pojo for json param'}";
 	}
 	```
-#### @RequestBody与@RequestParam区别
+##### @RequestBody与@RequestParam区别
   * @RequestParam用于接收url地址传参，表单传参【application/x-www-form-urlencoded】
   * @RequestBody用于接收json数据【application/json】
 
-### 3.2.4 日期类型参数传递
+#### 3.2.4 日期类型参数传递
 - SpringMVC默认支持的字符串转日期的格式为`yyyy/MM/dd`，其他格式日期使用`@DateTimeFormat`注解
 ```java
 @RequestMapping("/dataParam")
@@ -518,10 +518,10 @@ public String dataParam(Date date,
 ```
 
 
-## 3.3 响应
+### 3.3 响应
 
 
-### 3.3.1 响应页面[了解]
+#### 3.3.1 响应页面[了解]
 
 ```java
 @Controller
@@ -540,7 +540,7 @@ public class UserController {
 ```
 
 
-### 3.3.2 返回文本数据[了解]
+#### 3.3.2 返回文本数据[了解]
 
 ```java
 @Controller
@@ -558,7 +558,7 @@ public class UserController {
 ```
 
 
-### 3.2.3 响应JSON数据
+#### 3.2.3 响应JSON数据
 
 1. 响应POJO对象
 ```java
@@ -607,7 +607,7 @@ public class UserController {
 
 
 
-### [@ReponseBody ](/ReponseBody ) 
+#### [@ReponseBody ](/ReponseBody ) 
 
 - 可以写在类上或者方法上
 - 写在类上就是该类下的所有方法都有@ReponseBody功能
@@ -616,10 +616,10 @@ public class UserController {
    - 方法的返回值为对象，会将对象转换成JSON响应给前端
 
 
-# 4 Rest风格
+## 4 Rest风格
 
 
-## 4.1 简介
+### 4.1 简介
 
 - REST（Representational State Transfer），表现形式状态转换,它是一种软件架构风格
 
@@ -630,7 +630,7 @@ public class UserController {
 - 根据REST风格对资源进行访问称为RESTful。
 
 
-## 4.2 语法
+### 4.2 语法
 
 - 使用`@RestController`注解替换@Controller与@ResponseBody注解
 - 查询：`@GetMapping`
@@ -639,7 +639,7 @@ public class UserController {
 - 删除：`@DeleteMapping`
 
 
-## 4.3 传递路径参数
+### 4.3 传递路径参数
 
 - 请求`http://localhost/users/1`,路径中的`1`为参数。 
    - 修改@RequestMapping的value属性，将其中修改为`/users/{id}`
@@ -673,14 +673,14 @@ public class UserController {
 ```
 
 
-## @RequestBody、@RequestParam、@PathVariable区别
+### @RequestBody、@RequestParam、@PathVariable区别
 
 - @RequestParam用于接收url地址传参或表单传参
 - @RequestBody用于接收json数据
 - @PathVariable用于接收路径参数，使用{参数名称}描述路径参数
 
 
-## SpringMVC需要将静态资源进行放行
+### SpringMVC需要将静态资源进行放行
 
 ```java
 @Configuration
@@ -698,7 +698,7 @@ public class SpringMvcSupport extends WebMvcConfigurationSupport {
 ```
 
 
-# 5 SSM整合
+## 5 SSM整合
 
 1. 添加依赖
 
@@ -906,7 +906,7 @@ public class ServletConfig extends AbstractAnnotationConfigDispatcherServletInit
 ```
 
 
-# 6 统一结果封装
+## 6 统一结果封装
 
 1. 创建Result类
 
@@ -954,14 +954,14 @@ public class Code {
 ```
 
 
-# 7 统一异常处理
+## 7 统一异常处理
 
 - [@RestControllerAdvice ](/RestControllerAdvice )  
    - 此注解自带@ResponseBody注解与@Component注解，具备对应的功能
 - [@ExceptionHandler ](/ExceptionHandler ) <br />此类方法可以根据处理的异常不同，制作多个方法分别处理对应的异常
 
 
-## 7.1 异常解决方案
+### 7.1 异常解决方案
 
 - 业务异常（BusinessException） 
    - 发送对应消息传递给用户，提醒规范操作 
@@ -982,7 +982,7 @@ public class Code {
    - 记录日志
 
 
-## 7.2 异常解决步骤
+### 7.2 异常解决步骤
 
 1. 自定义异常类
 
@@ -1090,10 +1090,10 @@ public class ProjectExceptionAdvice {
 ![](http://img.lonely.icu/lonely-md/20220816150306.png)
 
 
-# 8 拦截器
+## 8 拦截器
 
 
-## 8.1 拦截器概念
+### 8.1 拦截器概念
 
 ![](http://img.lonely.icu/lonely-md/20220816150657.png)
 
@@ -1105,7 +1105,7 @@ public class ProjectExceptionAdvice {
    - 拦截内容不同：Filter对所有访问进行增强，Interceptor仅针对SpringMVC的访问进行增强<br />![](http://img.lonely.icu/lonely-md/20220816150711.png)
 
 
-## 8.2 拦截器入门
+### 8.2 拦截器入门
 
 1. 创建拦截器类
 
@@ -1170,10 +1170,10 @@ public class SpringMvcConfig{
 拦截器的执行流程:<br />![](http://img.lonely.icu/lonely-md/20220816151124.png)
 
 
-## 8.3 拦截器参数
+### 8.3 拦截器参数
 
 
-### 8.3.1 前置处理方法
+#### 8.3.1 前置处理方法
 
 - request:请求对象
 - response:响应对象
@@ -1189,17 +1189,17 @@ public boolean preHandle(HttpServletRequest request, HttpServletResponse respons
 ```
 
 
-### 8.3.2 后置处理方法
+#### 8.3.2 后置处理方法
 
 前三个参数和上面的是一致的。<br />modelAndView:如果处理器执行完成具有返回结果，可以读取到对应数据与页面信息，并进行调整
 
 
-### 8.3.3 完成处理方法
+#### 8.3.3 完成处理方法
 
 前三个参数和上面的是一致的。<br />Exception:如果处理器执行过程中出现异常对象，可以针对异常情况进行单独处理
 
 
-## 8.4 多拦截器配置
+### 8.4 多拦截器配置
 
 - 配置多拦截器
 

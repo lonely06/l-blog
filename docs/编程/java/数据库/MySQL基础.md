@@ -1,8 +1,8 @@
 
-# 数据库相关概念
+## 数据库相关概念
 
 
-## 数据库
+### 数据库
 
 DataBase(DB)
 
@@ -16,23 +16,23 @@ DataBase(DB)
    3. 使用了统一的方式操作数据库 -- SQL
 
 
-## 数据库管理系统
+### 数据库管理系统
 
 DataBase Management System (DBMS)
 
 - 操纵和管理数据库的大型软件
 
 
-## SQL
+### SQL
 
 
-### 什么是SQL？
+#### 什么是SQL？
 
 Structured Query Language：结构化查询语言<br />
 其实就是定义了操作所有关系型数据库的标准。每一种数据库操作的方式存在不一样的地方，称为“方言”。
 
 
-### SQL通用语法
+#### SQL通用语法
 
 1. SQL 语句可以单行或多行书写，以**分号**结尾。
 2. 可使用空格和缩进来增强语句的可读性。
@@ -43,45 +43,45 @@ Structured Query Language：结构化查询语言<br />
    - 多行注释: `/* 注释 */`
 
 
-### SQL分类
+#### SQL分类
 
 
-#### DDL
+##### DDL
 
 (Data Definition Language)数据定义语言<br />
 用来定义数据库对象：数据库，表，列等。关键字：create, drop,alter 等
 
 
-#### DML
+##### DML
 
 (Data Manipulation Language)数据操作语言<br />
 用来对数据库中表的数据进行增删改。关键字：insert, delete, update 等
 
 
-#### DQL
+##### DQL
 
 (Data Query Language)数据查询语言<br />
 用来查询数据库中表的记录(数据)。关键字：select, where 等
 
 
-#### DCL(了解)
+##### DCL(了解)
 
 (Data Control Language)数据控制语言<br />
 用来定义数据库的访问权限和安全级别，及创建用户。关键字：GRANT， REVOKE 等
 
 
-# MySQL数据库软件
+## MySQL数据库软件
 
 
-## 数据模型
+### 数据模型
 
 [[14. redis#NOSQL]]
 
 
-## 安装
+### 安装
 
 
-## 卸载
+### 卸载
 
 1. 停止MySQL服务
 2. 卸载MySQL
@@ -91,15 +91,15 @@ Structured Query Language：结构化查询语言<br />
    - 数据存放目录是在 C:\ProgramData\MySQL，直接将该文件夹删除。
 
 
-## 配置
+### 配置
 
 
-### 注册MySQL服务
+#### 注册MySQL服务
 
 在cmd中输入`mysql -install`
 
 
-### MySQL服务启动
+#### MySQL服务启动
 
 1. 手动
 2. 使用管理员打开cmd（win+R—>cmd—>Ctrl+Shift+Enter）
@@ -110,19 +110,19 @@ Structured Query Language：结构化查询语言<br />
       - `mysql80`为mysql的系统服务名
 
 
-### MySQL登录
+#### MySQL登录
 
 1. mysql -u用户名 -p密码
 2. mysql -u用户名 -p密码 -h要连接的mysql服务器的ip地址(默认127.0.0.1) -P端口号(默认3306)
 
 
-### MySQL退出
+#### MySQL退出
 
 1. exit
 2. quit
 
 
-### MySQL目录结构
+#### MySQL目录结构
 
 1. MySQL安装目录
 
@@ -134,9 +134,10 @@ Structured Query Language：结构化查询语言<br />
    - 数据：数据
 
 
-### MySQL执行日志
+#### MySQL执行日志
 
-- 在mysql配置文件（my.ini）中添加如下配置(重启mysql服务后生效)```
+- 在mysql配置文件（my.ini）中添加如下配置(重启mysql服务后生效)
+```
 log-output=FILE
 general-log=1
 general_log_file="D:\mysql.log"
@@ -148,13 +149,13 @@ long_query_time=2
 
 
 
-# DDL:操作数据库、表
+## DDL:操作数据库、表
 
 
-## 操作数据库
+### 操作数据库
 
 
-### C(Create)：创建
+#### C(Create)：创建
 
 1. 创建数据库：<br />
 `create database 数据库名称;`
@@ -164,7 +165,7 @@ long_query_time=2
 `create database 数据库名称 character set 字符集名;`
 
 
-### R(Retrieve)：查询
+#### R(Retrieve)：查询
 
 1. 查询所有数据库的名称<br />
 `show databases;`
@@ -172,13 +173,13 @@ long_query_time=2
 `show create database 数据库名称;`
 
 
-### U(Update)：修改
+#### U(Update)：修改
 
 - 修改数据库的字符集<br />
 `alter database 数据库名称 character set 字符集名称;`
 
 
-### D(Delete)：删除
+#### D(Delete)：删除
 
 1. 删除数据库<br />
 `drop database 数据库名称;`
@@ -186,7 +187,7 @@ long_query_time=2
 `drop database if exists 数据库名称;`
 
 
-### 使用数据库
+#### 使用数据库
 
 1. 查询当前正在使用的数据库<br />
 `select database();`
@@ -194,12 +195,13 @@ long_query_time=2
 `use 数据库名称;`
 
 
-## 操作表
+### 操作表
 
 
-### C(Create)： 创建
+#### C(Create)： 创建
 
-1. 创建表：```sql
+1. 创建表：
+```sql
 create table 表名(
                 列名1 数据类型1 [comment 列名1注释],
                 列名2 数据类型2 [comment 列名2注释],
@@ -225,7 +227,7 @@ create table 表名(
 `create table 表名 like 被复制的表名;`
 
 
-### R(Retrieve)：查询
+#### R(Retrieve)：查询
 
 1. 查询某个数据库中所有的表名称<br />
 `show tables;`
@@ -235,7 +237,7 @@ create table 表名(
 `show create table 表名;`
 
 
-### U(Update)：修改
+#### U(Update)：修改
 
 1. 修改表名<br />
 `alter table 表名 rename to 新的表名;`
@@ -250,7 +252,7 @@ create table 表名(
 `alter table 表名 drop 列名;`
 
 
-### D(Delete)：删除
+#### D(Delete)：删除
 
 - 删除表<br />
 `drop table 表名;`<br />
@@ -260,10 +262,10 @@ create table 表名(
 - 注意：删除表时，表中的全部数据也会被删除
 
 
-# DML:增删改表中的数据
+## DML:增删改表中的数据
 
 
-## 添加数据
+### 添加数据
 
 - 语法：
 
@@ -281,7 +283,7 @@ create table 表名(
    3. 插入的数据大小，应在列规定范围内
 
 
-## 删除数据
+### 删除数据
 
 - 语法：<br />
 `delete from 表名 [where 条件]`
@@ -294,7 +296,7 @@ create table 表名(
       2. `truncate table 表名;` -- 推荐使用，效率更高。先删除表，然后再创建一张一样的空表。
 
 
-## 修改数据
+### 修改数据
 
 - 
 语法：
@@ -306,10 +308,10 @@ create table 表名(
 
 
 
-# DQL:查询表中的记录
+## DQL:查询表中的记录
 
 
-## 语法
+### 语法
 
 ```sql
 -- 编写顺序                                -- 执行顺序
@@ -330,7 +332,7 @@ limit                                      limit
 ```
 
 
-## 基础查询
+### 基础查询
 
 1. 
 多个字段的查询
@@ -359,7 +361,7 @@ limit                                      limit
       - 表达式2：如果该字段为null后的替换值。
 
 
-## 条件查询
+### 条件查询
 
 1. 
 where子句后跟条件
@@ -423,7 +425,7 @@ SELECT * FROM student WHERE NAME LIKE '%德%';
 
 
 
-## 排序查询
+### 排序查询
 
 - 
 语法：
@@ -440,7 +442,7 @@ SELECT * FROM student WHERE NAME LIKE '%德%';
 
 
 
-## 聚合函数
+### 聚合函数
 
 将一列数据作为一个整体，进行纵向的计算。
 
@@ -465,7 +467,7 @@ SELECT * FROM student WHERE NAME LIKE '%德%';
    2. IFNULL函数
 
 
-## 分组查询
+### 分组查询
 
 - 
 语法：
@@ -482,7 +484,7 @@ SELECT * FROM student WHERE NAME LIKE '%德%';
    3. 执行顺序：where > 聚合函数 > having
 
 
-## 分页查询
+### 分页查询
 
 - 
 语法
@@ -502,23 +504,23 @@ limit 是一个MySQL"方言"，用来完成分页
 
 
 
-# DCL:管理用户，授权(了解)
+## DCL:管理用户，授权(了解)
 
 
-## 管理用户
+### 管理用户
 
 
-### 添加用户
+#### 添加用户
 
 `CREATE USER '用户名'@'主机名' IDENTIFIED BY '密码';`
 
 
-### 删除用户
+#### 删除用户
 
 `DROP USER '用户名'@'主机名';`
 
 
-### 修改用户
+#### 修改用户
 
 `alter user '用户名'@'主机名' identified with mysql_native_password by '新密码';`
 
@@ -541,7 +543,7 @@ limit 是一个MySQL"方言"，用来完成分页
    9. 使用新密码登录
 
 
-### 查询用户
+#### 查询用户
 
 1. 
 切换到mysql数据库
@@ -558,25 +560,25 @@ limit 是一个MySQL"方言"，用来完成分页
    2. 在MySQL中需要通过用户@主机名的方式，来标识一个用户
 
 
-## 授权管理
+### 授权管理
 
 
-### 查询权限
+#### 查询权限
 
 `SHOW GRANTS FOR '用户名'@'主机名';`
 
 
-### 授予权限
+#### 授予权限
 
 `grant 权限列表 on 数据库名.表名 to '用户名'@'主机名';`
 
 
-### 撤销权限
+#### 撤销权限
 
 `revoke 权限列表 on 数据库名.表名 from '用户名'@'主机名';`
 
 
-### 权限列表
+#### 权限列表
 
 ALL, ALL PRIVILGES      所有权限
 
@@ -600,10 +602,10 @@ CREATE                  创建数据库/表
    2. 授权时，数据库名和表名可以使用`*`进行统配，代表所有
 
 
-# 函数
+## 函数
 
 
-### 字符串函数
+#### 字符串函数
 | 函数 | 功能 |
 | --- | --- |
 | concat(S1, S2, ... Sn) | 字符串拼接，将S1，S2，... Sn拼接成一个字符串 |
@@ -616,7 +618,7 @@ CREATE                  创建数据库/表
 
 
 
-### 数值函数
+#### 数值函数
 | 函数 | 功能 |
 | --- | --- |
 | ceil(x) | 向上取整 |
@@ -627,7 +629,7 @@ CREATE                  创建数据库/表
 
 
 
-### 日期函数
+#### 日期函数
 | 函数 | 功能 |
 | --- | --- |
 | curdate() | 返回当前日期 |
@@ -641,7 +643,7 @@ CREATE                  创建数据库/表
 
 
 
-### 流程函数
+#### 流程函数
 | 函数 | 功能 |
 | --- | --- |
 | if(value, t, f) | 如果value为true，则返回t，否则返回f |
@@ -651,15 +653,15 @@ CREATE                  创建数据库/表
 
 
 
-# 约束
+## 约束
 
 
-## 概念
+### 概念
 
 对表中的数据进行限定，保证数据的正确性、有效性和完整性。
 
 
-## 分类
+### 分类
 | 约束 | 描述 | 关键字 |
 | --- | --- | --- |
 | 非空约束 | 限制该字段的数据不能为null | NOT NULL |
@@ -673,7 +675,7 @@ CREATE                  创建数据库/表
 - 注意：约束是作用于表中字段上的，可以在创建表/修改表的时候添加约束。
 
 
-## 非空约束
+### 非空约束
 
 not null，某一列的值不能为null
 
@@ -697,7 +699,7 @@ CREATE TABLE stu(
 
 
 
-## 唯一约束
+### 唯一约束
 
 unique，某一列的值不能重复
 
@@ -725,7 +727,7 @@ CREATE TABLE stu(
 
 
 
-## 主键约束
+### 主键约束
 
 primary key
 
@@ -783,7 +785,7 @@ create table stu(
 
 
 
-## 外键约束
+### 外键约束
 
 foreign key,让表与表产生关系，从而保证数据的正确性。
 
@@ -827,10 +829,10 @@ create table 表名(
 
 
 
-# 多表查询
+## 多表查询
 
 
-## 多表关系
+### 多表关系
 
 - 一对多（多对一）
 
@@ -844,7 +846,7 @@ create table 表名(
    - 实现: 在任意一方加入外键，关联另外一方的主键，并且设置外键为唯一的(UNIQUE)
 
 
-## 查询语法
+### 查询语法
 
 ```sql
 select
@@ -855,16 +857,16 @@ where....
 ```
 
 
-## 笛卡尔积
+### 笛卡尔积
 
 - 有两个集合A,B .取这两个集合的所有组成情况。
 - 要完成多表查询，需要消除无用的数据。
 
 
-## 多表查询的分类：
+### 多表查询的分类：
 
 
-### 内连接查询
+#### 内连接查询
 
 查询两张表的交集部分
 
@@ -906,7 +908,7 @@ SELECT * FROM emp t1 JOIN dept t2 ON t1.`dept_id` = t2.`id`;
 
 
 
-### 外连接查询
+#### 外连接查询
 
 1. 
 左外连接（使用更多）
@@ -920,7 +922,7 @@ SELECT * FROM emp t1 JOIN dept t2 ON t1.`dept_id` = t2.`id`;
 
 
 
-### 自连接
+#### 自连接
 
 1. 
 语法：`select 字段列表 from 表A 别名A join 表B 别名B on 条件;`
@@ -932,7 +934,7 @@ SELECT * FROM emp t1 JOIN dept t2 ON t1.`dept_id` = t2.`id`;
    - 自连接查询中，必须要为表起别名
 
 
-### 联合查询
+#### 联合查询
 
 1. 
 语法
@@ -954,7 +956,7 @@ select 字段列表 from 表B;
 
 
 
-### 子查询
+#### 子查询
 
 - 
 概念：查询中嵌套查询，称嵌套查询为子查询。
@@ -1044,15 +1046,15 @@ SELECT * FROM dept t1, emp t2 WHERE t1.`id` = t2.`dept_id` AND t2.`join_date` > 
 
 
 
-# 事务
+## 事务
 
 
-## 事务概念
+### 事务概念
 
 如果一个包含多个步骤的业务操作，被事务管理，那么这些操作要么同时成功，要么同时失败。
 
 
-## 事务操作
+### 事务操作
 
 1. 开启事务：`start transaction 或 begin;`
 2. 回滚：`rollback;`
@@ -1075,45 +1077,45 @@ SELECT * FROM dept t1, emp t2 WHERE t1.`id` = t2.`dept_id` AND t2.`join_date` > 
       - 修改默认提交方式： `set @@autocommit = 0;`
 
 
-## 事务的4大特性(ACID)
+### 事务的4大特性(ACID)
 
 
-### 原子性(Atomicity)
+#### 原子性(Atomicity)
 
 事务是不可分割的最小操作单位，要么同时成功，要么同时失败。
 
 
-### 持久性(Durability)
+#### 持久性(Durability)
 
 当事务提交或回滚后，数据库会持久化的保存数据。
 
 
-### 隔离性(Isolation)
+#### 隔离性(Isolation)
 
 多个事务之间相互独立。
 
 
-### 一致性(Consistency)
+#### 一致性(Consistency)
 
 事务操作前后，数据总量不变
 
 
-## 并发事务存在问题
+### 并发事务存在问题
 
 1. 脏读：一个事务读取到另一个事务中没有提交的数据。
 2. 不可重复读(虚读)：在同一个事务中，两次读取到的数据不一样。
 3. 幻读：一个事务按照条件查询数据时，没有对应的数据行，但是在插入数据时，又发现这行数据 已经存在，好像出现了 "幻影"。
 
 
-## 事务的隔离级别(了解)
+### 事务的隔离级别(了解)
 
 
-### 概念
+#### 概念
 
 多个事务之间隔离的，相互独立的。但是如果多个事务操作同一批数据，则会引发一些问题，设置不同的隔离级别就可以解决这些问题。
 
 
-### 隔离级别
+#### 隔离级别
 
 1. read uncommitted：读未提交
 
@@ -1142,20 +1144,20 @@ SELECT * FROM dept t1, emp t2 WHERE t1.`id` = t2.`dept_id` AND t2.`join_date` > 
    - global：全部会话
 
 
-# 数据库的设计
+## 数据库的设计
 
 
-## 多表之间的关系
+### 多表之间的关系
 
 
-### 分类
+#### 分类
 
 1. 一对一（了解）
 2. 一对多（多对一）
 3. 多对多
 
 
-### 实现关系
+#### 实现关系
 
 1. 一对一
 
@@ -1169,7 +1171,7 @@ SELECT * FROM dept t1, emp t2 WHERE t1.`id` = t2.`dept_id` AND t2.`join_date` > 
    - 实现方式：需要借助第三张中间表。中间表至少包含两个字段，这两个字段作为第三张表的外键，分别指向两张表的主键。
 
 
-## 数据库设计的范式
+### 数据库设计的范式
 
 - 
 概念：设计数据库时，需要遵循的一些规范。要遵循后边的范式要求，必须先遵循前边的所有范式要求。
@@ -1195,10 +1197,10 @@ SELECT * FROM dept t1, emp t2 WHERE t1.`id` = t2.`dept_id` AND t2.`join_date` > 
    3. 第三范式（3NF）：在2NF基础上，任何非主属性不依赖于其它非主属性（在2NF基础上消除传递依赖）。
 
 
-# 数据库的备份和还原
+## 数据库的备份和还原
 
 
-## 命令行
+### 命令行
 
 - 语法
 
@@ -1211,4 +1213,4 @@ SELECT * FROM dept t1, emp t2 WHERE t1.`id` = t2.`dept_id` AND t2.`join_date` > 
       4. 执行文件        `source 文件路径`
 
 
-## 图形化工具
+### 图形化工具

@@ -1,15 +1,15 @@
 ---
 title: Spring 配置文件
 ---
-# 1 Spring
+## 1 Spring
 
 
-## 1.1 官网
+### 1.1 官网
 
 [官网](https://spring.io/)
 
 
-## 1.2 系统架构图
+### 1.2 系统架构图
 
 - Spring Framework的5版本目前没有最新的架构图，而最新的是4版本，所以接下来主要研究的是4的架构图
 
@@ -39,10 +39,10 @@ title: Spring 配置文件
 - Spring主要整合了Junit来完成单元测试和集成测试
 
 
-# 2 Spring核心概念
+## 2 Spring核心概念
 
 
-## IOC、IOC容器、Bean、DI
+### IOC、IOC容器、Bean、DI
 
 1.  IOC（Inversion of Control）控制反转 
    1.  什么是控制反转？ 
@@ -82,10 +82,10 @@ Spring创建了一个容器用来存放所创建的对象，这个容器就叫IO
 容器中所存放的一个个对象就叫Bean或Bean对象
 
 
-# 3 快速入门
+## 3 快速入门
 
 
-## 3.1 IOC入门案例
+### 3.1 IOC入门案例
 
 1. 添加依赖
 
@@ -146,7 +146,7 @@ public class App {
 ```
 
 
-## 3.2 DI入门案例
+### 3.2 DI入门案例
 
 1. 删除业务层中使用new的方式创建的dao对象
 
@@ -209,15 +209,15 @@ public class BookServiceImpl implements BookService {
 - ref="bookDao"中`bookDao`的作用是让Spring能在IOC容器中找到id为`bookDao`的Bean对象给`bookService`进行注入
 
 
-# 4 IOC
+## 4 IOC
 
 
-### 4.1 bean基础配置
+#### 4.1 bean基础配置
 
 ![](http://img.lonely.icu/lonely-md/20220813170359.png)
 
 
-#### 4.1.1 bean基础配置(id与class)
+死死死死4 4.1.1 bean基础配置(id与class)
 
 ![](http://img.lonely.icu/lonely-md/20220813165530.png)
 
@@ -225,7 +225,7 @@ public class BookServiceImpl implements BookService {
    - 不能使用接口来作为class属性（接口不能创建对象）
 
 
-#### 4.1.2 bean的name属性
+死死死死4 4.1.2 bean的name属性
 
 ![](http://img.lonely.icu/lonely-md/20220813165852.png)
 
@@ -233,7 +233,7 @@ public class BookServiceImpl implements BookService {
    - bean依赖注入的ref属性指定bean，必须在容器中存在
 
 
-#### 4.1.3 bean作用范围scope配置
+死死死死4 4.1.3 bean作用范围scope配置
 
 ![](http://img.lonely.icu/lonely-md/202211251613516.png)
 
@@ -251,17 +251,17 @@ public class BookServiceImpl implements BookService {
    - 封装实例的域对象，因为会引发线程安全问题，所以不适合。
 
 
-### 4.2 bean实例化
+#### 4.2 bean实例化
 
 
-#### 4.2.1 构造方法实例化
+死死死死4 4.2.1 构造方法实例化
 
 - Spring底层使用： 
    1. 反射，可以访问类中的私有构造方法
    2. 类的无参构造方法
 
 
-#### 4.2.2 静态工厂实例化(了解)
+死死死死4 4.2.2 静态工厂实例化(了解)
 
 1. 创建工厂类
 
@@ -288,7 +288,7 @@ public class OrderDaoFactory {
    - 在工厂的静态方法中，除了new对象还可以做其他的一些业务操作
 
 
-#### 4.2.3 实例工厂与FactoryBean(了解)
+死死死死4 4.2.3 实例工厂与FactoryBean(了解)
 
 1. 创建工厂类并提供一个普通方法，注意此处和静态工厂的工厂类不一样的地方是方法不是静态方法
 
@@ -317,7 +317,7 @@ public class UserDaoFactory {
 - Spring为了简化这种配置方式就提供了一种叫`FactoryBean`的方式来简化开发。
 
 
-##### 4.2.3.1 FactoryBean的使用(实用)
+###### 4.2.3.1 FactoryBean的使用(实用)
 
 1. 创建一个类，实现FactoryBean接口，重写接口的方法
 
@@ -342,7 +342,7 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
 ```
 
 
-### 4.3 bean的生命周期
+#### 4.3 bean的生命周期
 
 1.  Spring中对bean生命周期控制提供了两种方式: 
    - 在配置文件中的bean标签中添加`init-method`和`destroy-method`属性
@@ -366,7 +366,7 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
          - 不同点:close()是在调用的时候关闭，registerShutdownHook()是在JVM退出前调用关闭。
 
 
-# 5 DI相关内容
+## 5 DI相关内容
 
 -  setter注入 
    - 简单数据类型
@@ -407,13 +407,13 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
    - 第三方技术根据情况选择
 
 
-### 5.1 setter注入
+#### 5.1 setter注入
 
 - 对于引用数据类型使用的是`<property name="" ref=""/>`
 - 对于简单数据类型使用的是`<property name="" value=""/>`
 
 
-#### 5.1.1 注入引用数据类型
+死死死死4 5.1.1 注入引用数据类型
 
 1. 声明属性并提供setter方法
 2. 配置文件中进行注入配置
@@ -434,7 +434,7 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
 ```
 
 
-#### 5.1.2 注入简单数据类型
+死死死死4 5.1.2 注入简单数据类型
 
 1. 声明属性并提供setter方法
 2. 配置文件中进行注入配置
@@ -453,10 +453,10 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
 ```
 
 
-### 5.2 构造器注入
+#### 5.2 构造器注入
 
 
-#### 5.2.1 构造器注入引用数据类型
+死死死死4 5.2.1 构造器注入引用数据类型
 
 1. 删除setter方法并提供构造方法
 2. 配置文件中进行配置构造方式注入
@@ -479,7 +479,7 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
 ```
 
 
-#### 5.2.2 构造器注入多个引用数据类型
+死死死死4 5.2.2 构造器注入多个引用数据类型
 
 1. 提供多个属性的构造函数
 2. 配置文件中配置多参数注入
@@ -501,7 +501,7 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
 ```
 
 
-#### 5.2.3 构造器注入多个简单数据类型
+死死死死4 5.2.3 构造器注入多个简单数据类型
 
 1.  添加多个简单属性并提供构造方法 
 2.  配置完成多个属性构造器注入 
@@ -523,7 +523,7 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
 - 当构造函数中方法的参数名发生变化后，配置文件中的name属性也需要跟着变，如何解决？ 
    - 方式一:删除name属性，添加type属性，按照类型注入
 
-### 5.3 自动配置
+#### 5.3 自动配置
 
 - 自动装配： IoC容器根据bean所依赖的资源在容器中自动查找并注入到bean中的过程称为自动装配 
    1. 自动装配用于**引用类型依赖注入**，不能对简单类型进行操作
@@ -550,10 +550,10 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
 ```
 
 
-### 5.4 集合注入
+#### 5.4 集合注入
 
 
-#### 5.4.2 注入数组类型数据
+死死死死4 5.4.2 注入数组类型数据
 
 ```xml
 <property name="array">
@@ -566,7 +566,7 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
 ```
 
 
-#### 5.4.3 注入List类型数据
+死死死死4 5.4.3 注入List类型数据
 
 ```xml
 <property name="list">
@@ -580,7 +580,7 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
 ```
 
 
-#### 5.4.4 注入Set类型数据
+死死死死4 5.4.4 注入Set类型数据
 
 ```xml
 <property name="set">
@@ -594,7 +594,7 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
 ```
 
 
-#### 5.4.5 注入Map类型数据
+死死死死4 5.4.5 注入Map类型数据
 
 ```xml
 <property name="map">
@@ -607,7 +607,7 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
 ```
 
 
-#### 5.4.6 注入Properties类型数据
+死死死死4 5.4.6 注入Properties类型数据
 
 ```xml
 <property name="properties">
@@ -625,13 +625,13 @@ public class UserDaoFactoryBean implements FactoryBean<UserDao> {
    - 集合中要添加引用类型，只需要把`<value>`标签改成`<ref>`标签，这种方式用的比较少
 
 
-# 6 IOC/DI配置管理第三方bean
+## 6 IOC/DI配置管理第三方bean
 
 
-## 6.1 数据源对象管理
+### 6.1 数据源对象管理
 
 
-### 6.1.1 Druid管理
+#### 6.1.1 Druid管理
 
 1. pom.xml添加依赖
 
@@ -680,7 +680,7 @@ public class App {
 ```
 
 
-### 6.1.2 C3P0管理
+#### 6.1.2 C3P0管理
 
 1. pom.xml中添加依赖
 
@@ -715,7 +715,7 @@ public class App {
 ```
 
 
-## 6.2 加载properties文件
+### 6.2 加载properties文件
 
 1. 准备properties配置文件
 
@@ -771,7 +771,7 @@ jdbc.password=root
 ```
 
 
-### 6.2.1 注意事项
+#### 6.2.1 注意事项
 
 1. 键值对的key为`username`引发的问题 
    - 在properties中配置键值对的时候，如果key设置为`username`，得到的是电脑的用户名
@@ -833,10 +833,10 @@ public static void main(String[] args) throws Exception{
 ```
 
 
-# 7 核心容器
+## 7 核心容器
 
 
-## 7.1 容器的创建方式
+### 7.1 容器的创建方式
 
 1. 类路径下的XML配置文件
 
@@ -851,19 +851,19 @@ ApplicationContext ctx = new FileSystemXmlApplicationContext("applicationContext
 ```
 
 
-## 7.2 Bean的三种获取方式
+### 7.2 Bean的三种获取方式
 
 1. `BookDao bookDao = (BookDao) ctx.getBean("bookDao");`
 2. `BookDao bookDao = ctx.getBean("bookDao"，BookDao.class);`
 3. `BookDao bookDao = ctx.getBean(BookDao.class);`
 
 
-## 7.3 容器类层次结构
+### 7.3 容器类层次结构
 
 ![](http://img.lonely.icu/lonely-md/20220813214159.png)
 
 
-#### 2.2.4 BeanFactory的使用
+死死死死4 2.2.4 BeanFactory的使用
 
 -  BeanFactory是延迟加载，只有在获取bean对象的时候才会去创建 
 -  ApplicationContext是立即加载，容器加载的时候就会创建bean对象 
@@ -880,10 +880,10 @@ ApplicationContext ctx = new FileSystemXmlApplicationContext("applicationContext
 
 
 
-# 8总结
+## 8总结
 
 
-## 8.1 容器相关
+### 8.1 容器相关
 
 - BeanFactory是IoC容器的顶层接口，初始化BeanFactory对象时，加载的bean延迟加载
 - ApplicationContext接口是Spring容器的核心接口，初始化时bean立即加载
@@ -893,11 +893,11 @@ ApplicationContext ctx = new FileSystemXmlApplicationContext("applicationContext
    - FileSystemXmlApplicationContext`
 
 
-## 8.2 bean相关
+### 8.2 bean相关
 
 ![](http://img.lonely.icu/lonely-md/20220813214652.png)
 
 
-## 8.3 依赖注入相关
+### 8.3 依赖注入相关
 
 ![](http://img.lonely.icu/lonely-md/20220813214642.png)

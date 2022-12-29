@@ -1,7 +1,7 @@
 ---
 title: Spring cache
 ---
-# 1. 简介
+## 1. 简介
 
 -  **Spring Cache**是一个框架，实现了基于注解的缓存功能。 
 -  Spring Cache只是提供了一层抽象，底层可以切换不同的cache实现。具体就是通过**CacheManager**接口来统一不同的缓存技术。CacheManager是Spring提供的各种缓存技术抽象接口。 
@@ -14,7 +14,7 @@ title: Spring cache
 
 
 
-# 2. 注解
+## 2. 注解
 | **注解** | **说明** |
 | --- | --- |
 | [@EnableCaching ](/EnableCaching ) | 开启缓存注解功能 |
@@ -24,10 +24,10 @@ title: Spring cache
 
 
 
-# 3. 使用
+## 3. 使用
 
 
-## 3.1 @CachePut注解
+### 3.1 @CachePut注解
 
 - 作用: 将方法返回值，放入缓存
 - value: 缓存的名称, 每个缓存名称下面可以有很多key
@@ -56,7 +56,7 @@ public User save(User user){
 
 
 
-## 3.2 @CacheEvict注解
+### 3.2 @CacheEvict注解
 
 - 作用: 清理指定缓存
 - value: 缓存的名称，每个缓存名称下面可以有多个key
@@ -85,7 +85,7 @@ public User update(User user){
 ```
 
 
-## 3.3 @Cacheable注解
+### 3.3 @Cacheable注解
 
 - 作用: 在方法执行前，spring先查看缓存中是否有数据，如果有数据，则直接返回缓存数据；若没有数据，调用方法并将方法返回值放到缓存中
 - value: 缓存的名称，每个缓存名称下面可以有多个key
@@ -117,7 +117,7 @@ public User getById(@PathVariable Long id){
 ```
 
 
-# 4. 集成redis
+## 4. 集成redis
 
 -  pom.xml 
 ```xml

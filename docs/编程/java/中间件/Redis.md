@@ -1,7 +1,7 @@
 ---
 title: Redis
 ---
-# 1. 简介
+## 1. 简介
 
 -  Redis中文网：[https://www.redis.net.cn](https://www.redis.net.cn) 
 -  共5种常用数据类型 
@@ -14,10 +14,10 @@ title: Redis
 ![](http://img.lonely.icu/lonely-md/202211291405701.png)
 
 
-# 2. 常用命令
+## 2. 常用命令
 
 
-## 2.1 字符串string
+### 2.1 字符串string
 
 -  设置指定key的值<br />`set key value` 
 -  获取指定key的值<br />`get key` 
@@ -25,7 +25,7 @@ title: Redis
 -  key不存在时设置key的值<br />`setnx key value` 
 
 
-## 2.2 哈希hash
+### 2.2 哈希hash
 
 -  将哈希表key中的字段field的值设置为value<br />`hset key field value` 
 -  获取存储在哈希表中指定字段的值<br />`hget key field` 
@@ -37,7 +37,7 @@ title: Redis
 ![](http://img.lonely.icu/lonely-md/202210172101504.png)
 
 
-## 2.3 列表list
+### 2.3 列表list
 
 -  将一个或多个值插入到列表头部<br />`lpush key value1 [value2]` 
 -  获取列表指定范围内的元素<br />`lrange key start stop` 
@@ -48,7 +48,7 @@ title: Redis
 ![](http://img.lonely.icu/lonely-md/202210172104027.png)
 
 
-## 2.4 集合set
+### 2.4 集合set
 
 -  向集合添加一个或多个成员<br />`sadd key member1 [member2]` 
 -  返回集合中的所有成员<br />`smembers key` 
@@ -61,7 +61,7 @@ title: Redis
 ![](http://img.lonely.icu/lonely-md/202210172107325.png)
 
 
-## 2.5 有序集合sorted set
+### 2.5 有序集合sorted set
 
 -  向有序集合添加一个或多个成员，或者更新已存在成员的分数<br />`zadd key score1 member1 [score2 member2]` 
 -  过索引区间返回有序集合中指定区间内的成员<br />`zrange key start stop [withscores]` 
@@ -69,7 +69,7 @@ title: Redis
 -  移除有序集合中的一个或多个成员<br />`zrem key member [member...]` 
 
 
-## 2.6 通用命令
+### 2.6 通用命令
 
 -  查找所有符合给定模式(pattern)的key<br />`keys pattern` 
 -  检查给定key是否存在<br />`exists key` 
@@ -78,10 +78,10 @@ title: Redis
 -  在key存在时删除key<br />`del key` 
 
 
-# 3. 在java中使用
+## 3. 在java中使用
 
 
-## 3.1 jedis
+### 3.1 jedis
 
 -  maven坐标 
 ```xml
@@ -168,7 +168,7 @@ public class JedisPoolUtils {
 
 
 
-## 3.2 spring data redis
+### 3.2 spring data redis
 
 -  maven坐标 
 ```xml
@@ -197,30 +197,30 @@ public class JedisPoolUtils {
    - ListOperations：针对list类型的数据操作
 
 
-### springboot中使用
+#### springboot中使用
 
 
-#### 1. 配置xml
+##### 1. 配置xml
 
 ```yaml
 spring:
-  #Redis相关配置
+  死死死死1Redis相关配置
   redis:
     host: localhost
     port: 6379
-    #password: 123456
-    database: 0 #操作的是0号数据库
+    死死死死1password: 123456
+    database: 0 死死死死1操作的是0号数据库
     jedis:
-      #Redis连接池配置
+      死死死死1Redis连接池配置
       pool:
-        max-active: 8 #最大连接数
-        max-wait: 1ms #连接池最大阻塞等待时间
-        max-idle: 4 #连接池中的最大空闲连接
-        min-idle: 0 #连接池中的最小空闲连接
+        max-active: 8 死死死死1最大连接数
+        max-wait: 1ms 死死死死1连接池最大阻塞等待时间
+        max-idle: 4 死死死死1连接池中的最大空闲连接
+        min-idle: 0 死死死死1连接池中的最小空闲连接
 ```
 
 
-#### 2. 提供配置类
+##### 2. 提供配置类
 
 - Spring Boot框架会自动装配RedisTemplate对象，默认的key序列化器为JdkSerializationRedisSerializer，导致存到Redis中的数据和原始数据有差别
 
@@ -255,7 +255,7 @@ public class RedisConfig extends CachingConfigurerSupport {
 ```
 
 
-#### 3. 操作字符串类型
+##### 3. 操作字符串类型
 
 ```java
 public void testString(){
@@ -276,7 +276,7 @@ public void testString(){
 ```
 
 
-#### 4. 操作哈希类型
+##### 4. 操作哈希类型
 
 ```java
 public void testHash(){
@@ -306,7 +306,7 @@ public void testHash(){
 ```
 
 
-#### 5. 操作列表类型
+##### 5. 操作列表类型
 
 ```java
 public void testList(){
@@ -334,7 +334,7 @@ public void testList(){
 ```
 
 
-#### 6. 操作集合类型
+##### 6. 操作集合类型
 
 ```java
 public void testSet(){
@@ -361,7 +361,7 @@ public void testSet(){
 ```
 
 
-#### 7. 操作有序集合类型
+##### 7. 操作有序集合类型
 
 ```java
 public void testZset(){
@@ -400,7 +400,7 @@ public void testZset(){
 ```
 
 
-#### 8. 通用操作
+##### 8. 通用操作
 
 ```java
 public void testCommon(){
@@ -423,23 +423,23 @@ public void testCommon(){
 }
 ```
 
-# 4. 持久化
+## 4. 持久化
 
-## 4.1 概念
+### 4.1 概念
 
 - redis是一个内存数据库，当redis服务器重启或电脑重启，数据会丢失，我们可以将redis内存中的数据持久化保存到硬盘的文件中
 
-## 4.2 持久化机制
+### 4.2 持久化机制
 
 1.  RDB：默认方式，不需要进行配置，默认就使用这种机制 
    -  在一定的间隔时间中，检测key的变化情况，然后持久化数据 
    -  编辑redis.conf文件 
 ```properties
-#after 900 sec (15 min) if at least 1 key changed
+死死死死1after 900 sec (15 min) if at least 1 key changed
 save 900 1
-#after 300 sec (5 min) if at least 10 keys changed
+死死死死1after 300 sec (5 min) if at least 10 keys changed
 save 300 10
-#after 60 sec if at least 10000 keys changed
+死死死死1after 60 sec if at least 10000 keys changed
 save 60 10000
 ```
 
@@ -448,8 +448,8 @@ save 60 10000
    -  编辑redis.conf文件 
 ```properties
 appendonly no（关闭aof） --> appendonly yes （开启aof）
-# appendfsync always ： 每一次操作都进行持久化
+## appendfsync always ： 每一次操作都进行持久化
 appendfsync everysec ： 每隔一秒进行一次持久化
-# appendfsync no	 ： 不进行持久化
+## appendfsync no	 ： 不进行持久化
 ```
 
