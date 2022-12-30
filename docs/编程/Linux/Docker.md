@@ -1,8 +1,13 @@
-# 1.初识Docker
+---
+title: Docker
+sidebar_position: 2
+---
 
-## 1.1.什么是Docker
+## 1.初识Docker
 
-### 1.1.1.Docker解决依赖兼容问题
+### 1.1.什么是Docker
+
+#### 1.1.1.Docker解决依赖兼容问题
 
 Docker解决依赖的兼容问题，采用了两个手段：
 
@@ -12,14 +17,14 @@ Docker解决依赖的兼容问题，采用了两个手段：
 
 ![image-20210731142219735](http://img.lonely.icu//lonely-md/202212301958453.png)
 
-### 1.1.2.Docker解决操作系统环境差异
+#### 1.1.2.Docker解决操作系统环境差异
 
 - Docker将用户程序与所需要调用的系统(比如Ubuntu)函数库一起打包
 - Docker运行到不同操作系统时，直接基于打包的函数库，借助于操作系统的Linux内核来运行
 
 ![image-20210731144820638](http://img.lonely.icu//lonely-md/202212301958128.png)
 
-### 1.1.3.总结
+#### 1.1.3.总结
 
 Docker是一个快速交付应用、运行应用的技术，具备下列优势：
 
@@ -27,9 +32,9 @@ Docker是一个快速交付应用、运行应用的技术，具备下列优势�
 - 运行时利用沙箱机制形成隔离容器，各个应用互不干扰
 - 启动、移除都可以通过一行命令完成，方便快捷
 
-## 1.2.Docker架构
+### 1.2.Docker架构
 
-### 1.2.1.镜像和容器
+#### 1.2.1.镜像和容器
 
 - **镜像（Image）**：Docker将应用程序及其所需的依赖、函数库、环境、配置等文件打包在一起，称为镜像。
 
@@ -39,13 +44,13 @@ Docker是一个快速交付应用、运行应用的技术，具备下列优势�
 
 **容器**呢，就是将这些文件中编写的程序、函数加载到内存中允许，形成进程，只不过要隔离起来。因此一个镜像可以启动多次，形成多个容器进程。
 
-### 1.2.2.DockerHub
+#### 1.2.2.DockerHub
 
 - DockerHub：[DockerHub](https://hub.docker.com/)是一个官方的Docker镜像的托管平台。这样的平台称为Docker Registry。
 
 - 国内也有类似于DockerHub 的公开服务，比如 [网易云镜像服务](https://c.163yun.com/hub)、[阿里云镜像库](https://cr.console.aliyun.com/)等。
 
-### 1.2.3.Dockr架构
+#### 1.2.3.Dockr架构
 
 Docker是一个CS架构的程序，由两部分组成：
 
@@ -55,16 +60,16 @@ Docker是一个CS架构的程序，由两部分组成：
 
 ![image-20210731154257653](http://img.lonely.icu//lonely-md/202212302003962.png)
 
-# 2.Docker的基本操作
+## 2.Docker的基本操作
 
-## 2.1.镜像操作
+### 2.1.镜像操作
 
-### 2.1.1.镜像名称
+#### 2.1.1.镜像名称
 
 - 镜名称一般分两部分组成：[repository]:[tag]。
 - 在没有指定tag时，默认是latest，代表最新版本的镜像
 
-### 2.1.2.镜像命令
+#### 2.1.2.镜像命令
 
 常见的镜像操作命令如图：
 
@@ -74,9 +79,9 @@ Docker是一个CS架构的程序，由两部分组成：
 
 
 
-## 2.2.容器操作
+### 2.2.容器操作
 
-### 2.2.1.容器相关命令
+#### 2.2.1.容器相关命令
 
 ![image-20210731161950495](http://img.lonely.icu//lonely-md/202212302006834.png)
 
@@ -133,9 +138,9 @@ Docker是一个CS架构的程序，由两部分组成：
   - `docker ps -a`查看所有容器，包括已经停止的
 
 
-## 2.3.数据卷（容器数据管理）
+### 2.3.数据卷（容器数据管理）
 
-### 2.3.1.什么是数据卷
+#### 2.3.1.什么是数据卷
 
 **数据卷（volume）**是一个虚拟目录，指向宿主机文件系统中的某个目录。
 
@@ -155,7 +160,7 @@ Docker是一个CS架构的程序，由两部分组成：
 - docker volume rm：删除指定数据卷
 - docker volume prune：删除所有未使用的数据卷
 
-### 2.3.2.挂载数据卷
+#### 2.3.2.挂载数据卷
 
 在创建容器时，可以通过 -v 参数来挂载一个数据卷到某个容器内目录，命令格式如下：
 
@@ -168,23 +173,23 @@ docker run \
 # -v html:/root/htm 把html数据卷挂载到容器内的/root/html这个目录中
 ```
 
-# 3.Dockerfile自定义镜像
+## 3.Dockerfile自定义镜像
 
-## 3.1.镜像结构
+### 3.1.镜像结构
 
 镜像是将应用程序及其需要的系统函数库、环境、配置、依赖打包而成。
 
 ![image-20210731175806273](http://img.lonely.icu//lonely-md/202212302031878.png)
 
-## 3.2.Dockerfile语法
+### 3.2.Dockerfile语法
 
 ![image-20210731180321133](http://img.lonely.icu//lonely-md/202212302031755.png)
 
 更新详细语法说明，请参考官网文档： https://docs.docker.com/engine/reference/builder
 
-## 3.3.构建Java项目
+### 3.3.构建Java项目
 
-### 3.3.1.基于Ubuntu构建Java项目
+#### 3.3.1.基于Ubuntu构建Java项目
 
 需求：基于Ubuntu镜像构建一个新镜像，运行一个java项目
 
@@ -242,7 +247,7 @@ docker run \
   ```
 
 
-### 3.3.2.基于java8构建Java项目
+#### 3.3.2.基于java8构建Java项目
 
 ```dockerfile
 FROM java:8-alpine
@@ -253,11 +258,11 @@ ENTRYPOINT java -jar /tmp/app.jar
 
 
 
-# 4.Docker-Compose
+## 4.Docker-Compose
 
 Docker Compose可以基于Compose文件帮我们快速的部署分布式应用，而无需手动一个个创建和运行容器！
 
-## 4.1.初识DockerCompose
+### 4.1.初识DockerCompose
 
 Compose文件是一个文本文件，通过指令定义集群中的每个容器如何运行。格式如下：
 
@@ -284,9 +289,9 @@ version: "3.8"
 
 DockerCompose的详细语法参考官网：https://docs.docker.com/compose/compose-file/
 
-## 4.2.使用DockerCompose部署微服务集群
+### 4.2.使用DockerCompose部署微服务集群
 
-### 4.2.1.compose文件
+#### 4.2.1.compose文件
 
 ```yaml
 version: "3.2"
@@ -338,7 +343,7 @@ services:
     ```
 
 
-### 4.2.2.修改微服务配置
+#### 4.2.2.修改微服务配置
 
 因为微服务将来要部署为docker容器，而容器之间互联不是通过IP地址，而是通过容器名。这里我们将order-service、user-service、gateway服务的mysql、nacos地址都修改为基于容器名的访问。
 
@@ -358,7 +363,7 @@ spring:
       server-addr: nacos:8848 # nacos服务地址
 ```
 
-### 4.2.3.打包
+#### 4.2.3.打包
 
 接下来需要将我们的每个微服务都打包。因为之前查看到Dockerfile中的jar包名称都是app.jar，因此我们的每个微服务都需要用这个名称。
 
@@ -377,11 +382,11 @@ spring:
 </build>
 ```
 
-### 4.2.4.拷贝jar包到部署目录
+#### 4.2.4.拷贝jar包到部署目录
 
 编译打包好的app.jar文件，需要放到Dockerfile的同级目录中。注意：每个微服务的app.jar放到与服务名称对应的目录，别搞错了。
 
-### 4.2.5.部署
+#### 4.2.5.部署
 
 - 最后，我们需要将文件整个cloud-demo文件夹上传到虚拟机中，利用DockerCompose部署。
 
@@ -393,11 +398,11 @@ docker-compose up -d
 
 
 
-# 5.Docker镜像仓库 
+## 5.Docker镜像仓库 
 
-## 5.1.搭建私有镜像仓库
+### 5.1.搭建私有镜像仓库
 
-## 5.2.推送、拉取镜像
+### 5.2.推送、拉取镜像
 
 推送镜像到私有镜像服务必须先tag，步骤如下：
 
