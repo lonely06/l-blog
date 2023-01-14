@@ -16,6 +16,16 @@ docker run \
     mysql:8.0.31
 ```
 
+- hmy.cnf文件内容为：
+
+  ```
+  [mysqld]
+  skip-name-resolve
+  character_set_server=utf8
+  datadir=/var/lib/mysql
+  server-id=1000
+  ```
+
 ### mongodb
 
 ```sh
